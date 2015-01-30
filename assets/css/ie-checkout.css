@@ -1,0 +1,28 @@
+/* Default elements */
+
+.input-text-1 { border: #c5c5c5 1px solid; font: 12px/26px Arial, serif; }
+
+.item-block-3 { background: url(../images/ie/background-8.png) 0 0 repeat; }
+	.item-block-3 .content { border: #c5c5c5 1px solid; }
+
+.image-wrapper-1 { background-color: #fff; border: #c5c5c5 1px solid; }
+	.image-wrapper-1 .image-overlay-1 { display: none; }
+	.image-wrapper-1:hover .image-overlay-1 { display: block; }
+	.image-wrapper-1 .image { position: relative; }
+		.image-wrapper-1 .image img { display: block; }
+
+.button-1 { background: url(../images/ie/background-1.png) 0 0 repeat; cursor: pointer; }
+.button-1:hover { background: url(../images/ie/background-2.png) 0 0 repeat; }
+
+
+/* Header */
+
+.main-header-ie { display: block; }
+
+.main-header { display: none; }
+
+
+/* Checkout items */
+
+	.checkout-item .message { background: url(../images/ie/background-4.png) 0 0 repeat; border: #fff 1px solid; }
+		.checkout-item .message span { border: #c5c5c5 1px solid; }
