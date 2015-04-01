@@ -284,20 +284,22 @@ div.selector { background: url(../images/select-left-bg-dark-1.png) 0 0 no-repea
 		.customer .login label { color: #fff; }
 
 		.customer .order-history .title { color: #a4a4a4; }
-			.customer .order-history .title .total { color: #a4a4a4; }
+		.customer .order-history .title .total { color: #a4a4a4; }
 		.customer .order-history .row { background: url(../images/border-10.png) bottom left repeat-x; }
-			.customer .order-history .total { color: #5ed400; }
+		.customer .order-history .total { color: #5ed400; }
 		.customer .order-history a { color: #feebb7; }
 		.customer .order-history a:hover { color: #ff6600; }
 
-			.customer .shipping-address .content a { color: #feebb7; }
-			.customer .shipping-address .content a:hover { color: #ff6600; }
-			.customer .shipping-address .content h3 { color: #fff; }
+		.customer .shipping-address .content a { color: #feebb7; }
+		.customer .shipping-address .content a:hover { color: #ff6600; }
+		.customer .shipping-address .content h3 { color: #fff; }
 
 		.customer .manage-addresses .row { background: url(../images/border-10.png) top left repeat-x; }
 		.customer .manage-addresses h3 { color: #fff; }
-			.customer .manage-addresses .item .input-text-1 { border: none; box-shadow: rgba(0, 0, 0, 0.30) 0 1px 0; }
-			.customer .manage-addresses .edit a:first-child { background: url(../images/border-1.png) right 3px no-repeat; }
+		.customer .manage-addresses .item .input-text-1 { border: none; box-shadow: rgba(0, 0, 0, 0.30) 0 1px 0; }
+		.customer .manage-addresses .edit a:first-child { background: url(../images/border-1.png) right 3px no-repeat; }
+
+		.customer .order-history .title .price { color: #a4a4a4;}
 
 
 /* Fonts */

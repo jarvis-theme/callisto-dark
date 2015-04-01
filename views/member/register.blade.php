@@ -68,7 +68,7 @@
 						<input type="text" name='telp' value='{{Input::old("telp")}}' required class="input-text-1" />
 					</p>
 					<p>
-						<label>Captcha</label>
+						<label>Captcha*</label>
 						{{ HTML::image(Captcha::img(), 'Captcha image') }}
 					</p>
 					<p>

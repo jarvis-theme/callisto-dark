@@ -3,11 +3,11 @@
 	<div class="main-dock">
 		<ul>
 			<li><a href="/" class="home"></a></li>
-			@if ( ! Sentry::check())
+			@if ( ! is_login() )
 				<li>{{HTML::link('member', 'Login')}}</li>
 				<li>{{HTML::link('member/create', 'Register')}}</li>
 			@else
-				<li>{{HTML::link('member', Sentry::getUser()->nama)}}</li>
+				<li>{{HTML::link('member', user()->nama)}}</li>
 				<li>{{HTML::link('logout', 'Logout')}}</li>
 			@endif			
 			<!-- <li class="checkout"><a href="customer-checkout-step-1.html">Checkout</a></li> -->
@@ -20,7 +20,9 @@
 <!-- BEGIN .main-header -->
 <div class="main-header">
 	<div class="logo">
-		<a href="{{URL::to('home')}}"><img style="max-height:120px" src="{{URL::to(getPrefixDomain().'/galeri/'.$toko->logo)}}" alt="" /></a>
+		<a href="{{URL::to('home')}}">
+			{{HTML::image(logo_image_url($toko->logo),'',array('style'=>'max-height:120px'))}}
+		</a>
 		<!-- <a href="#" class="logo-icon custom-font-1"><span>Soulage</span></a> -->
 		<!-- <a href="#" class="logo-blank custom-font-1"><span>Mante&nbsp;and&nbsp;sons</span></a> -->
 		<!-- <span class="custom-font-1">{{$toko->judul}}</span> -->
@@ -67,17 +69,6 @@
 								<li><a class="single" href={{"'".URL::to(strtolower($link->linkTo))."'"}}>{{$link->nama}}</a></li>
 							@endif
 						@endforeach
-
-						<!-- <li>
-							<a href="catalog.html"><span>Catalog</span></a>
-							<ul>
-								<li><a href="item.html">Blouses &amp; shirts</a></li>
-								<li><a href="item.html">Trousers &amp; shorts</a></li>
-								<li><a href="item.html">Dresses</a></li>
-								<li><a href="item.html">Blazers &amp; jackets</a></li>
-							</ul>
-						</li> -->
-
 					</ul>
 				</td>
 			</tr>

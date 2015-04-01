@@ -13,22 +13,30 @@
 			<div id="single-product-slider">
 				@if($produk->gambar1!='')
 			    <div class="image">
-					<a href="#"><img src="{{URL::to(getPrefixDomain().'/produk/'.$produk->gambar1)}}" alt="" width="470" /></a>
+					<a href="#">
+						{{ HTML::image(product_image_url($produk->gambar1),'',array('width'=>'470')) }}
+					</a>
 				</div>
 			  	@endif
 			  	@if($produk->gambar2!='')			  	
 			    <div class="image">
-					<a href="#"><img src="{{URL::to(getPrefixDomain().'/produk/'.$produk->gambar2)}}" alt="" width="470" /></a>
+					<a href="#">
+						{{ HTML::image(product_image_url($produk->gambar2),'',array('width'=>'470')) }}
+					</a>
 				</div>
 			  	@endif
 			  	@if($produk->gambar3!='')			  	
 			    <div class="image">
-					<a href="#"><img src="{{URL::to(getPrefixDomain().'/produk/'.$produk->gambar3)}}" alt="" width="470" /></a>
+					<a href="#">
+						{{ HTML::image(product_image_url($produk->gambar3),'',array('width'=>'470')) }}
+					</a>
 				</div>
 			  	@endif
 			  	@if($produk->gambar4!='')			  	
 			    <div class="image">
-					<a href="#"><img src="{{URL::to(getPrefixDomain().'/produk/'.$produk->gambar4)}}" alt="" width="470" /></a>
+					<a href="#">
+						{{ HTML::image(product_image_url($produk->gambar4),'',array('width'=>'470')) }}
+					</a>
 				</div>
 			  	@endif
 			</div>
@@ -40,7 +48,9 @@
 			    <td>
 					<div class="image-wrapper-4 active">
 						<div class="image">
-							<a href="#"><img src="{{URL::to(getPrefixDomain().'/produk/thumb/'.$produk->gambar1)}}" alt="" width="60" /></a>
+							<a href="#">
+								{{ HTML::image(product_image_url($produk->gambar1,'thumb'),'',array('width'=>'60')) }}
+							</a>
 						</div>
 					</div>
 				</td>
@@ -49,7 +59,9 @@
 			    <td>
 					<div class="image-wrapper-4 active">
 						<div class="image">
-							<a href="#"><img src="{{URL::to(getPrefixDomain().'/produk/thumb/'.$produk->gambar2)}}" alt="" width="60" /></a>
+							<a href="#">
+								{{ HTML::image(product_image_url($produk->gambar2,'thumb'),'',array('width'=>'60')) }}
+							</a>
 						</div>
 					</div>
 				</td>
@@ -58,7 +70,9 @@
 			    <td>
 					<div class="image-wrapper-4 active">
 						<div class="image">
-							<a href="#"><img src="{{URL::to(getPrefixDomain().'/produk/thumb/'.$produk->gambar3)}}" alt="" width="60" /></a>
+							<a href="#">
+								{{ HTML::image(product_image_url($produk->gambar3,'thumb'),'',array('width'=>'60')) }}
+							</a>
 						</div>
 					</div>
 				</td>
@@ -67,7 +81,9 @@
 			    <td>
 					<div class="image-wrapper-4 active">
 						<div class="image">
-							<a href="#"><img src="{{URL::to(getPrefixDomain().'/produk/thumb/'.$produk->gambar4)}}" alt="" width="60" /></a>
+							<a href="#">
+								{{ HTML::image(product_image_url($produk->gambar4,'thumb'),'',array('width'=>'60')) }}
+							</a>
 						</div>
 					</div>
 				</td>
@@ -81,7 +97,9 @@
 		<div class="price custom-font-1" >
 			<div style="width: auto">
 				<p>{{ jadiRUpiah($produk->hargaJual) }}</p>
+				@if($produk->hargaCoret != 0)
 				<p><s>{{ jadiRUpiah($produk->hargaCoret) }}</s></p>
+				@endif
 			</div>
 			
 			<div class="clear"></div>
@@ -120,7 +138,6 @@
 				</div>
 				
 			</form>
-			{{pluginTrustklik()}}
 		</div>
 
 		
@@ -130,7 +147,7 @@
 					<tr>
 						<td>
 							<a href="#" class="active"><span>Deskripsi</span></a>
-							<!-- <a href="#"><span>Specification table</span></a> -->
+							<a href="#"><span>Reviews</span></a>
 						</td>
 					</tr>
 				</table>
@@ -140,9 +157,9 @@
 					<div class="item" style="text-align:justify;width:100%;">
 						<p>{{$produk->deskripsi}}</p>
 					</div>
-					<!-- <div class="item">
-						
-					</div> -->
+					<div class="item">
+						{{pluginTrustklik()}}
+					</div>
 				</div>
 			</div>
 		</div>
@@ -184,7 +201,9 @@
 								</tr>
 							</table>
 						</div>
-						<a href="#"><img src="{{URL::to(getPrefixDomain().'/produk/'.$myproduk->gambar1)}}" alt="{{$myproduk->nama}}" width="214" style="left: 50%; margin-left: -107px; top: 50%; margin-top: -106px;" /></a>
+						<a href="#">
+							{{HTML::image(product_image_url($myproduk->gambar1),$myproduk->nama,array('width'=>'214','style'=>'left: 50%; margin-left: -107px; top: 50%; margin-top: -106px;'))}}
+						</a>
 					</div>
 				</div>
 				<h3><a href="{{slugProduk($myproduk)}}" class="custom-font-1">{{$myproduk->nama}}</a></h3>

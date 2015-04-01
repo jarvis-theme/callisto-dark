@@ -14,7 +14,7 @@ Terjadi kesalahan dalam menyimpan data.<br>
 </div>
 @endif
 
-<!-- BEGIN .main-left-wrapper -->
+				<!-- BEGIN .main-left-wrapper -->
 				<div class="main-left-wrapper">
 
 					<div class="main-title">
@@ -66,9 +66,8 @@ Terjadi kesalahan dalam menyimpan data.<br>
 
 					<!-- BEGIN .recent-activity -->
 
-
 				<!-- END .main-sidebar-wrapper -->
 				</div>
 
-<div class="clear"></div>
-<br><br><br>
+				<div class="clear"></div>
+				<br><br><br>

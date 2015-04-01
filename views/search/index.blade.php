@@ -30,7 +30,9 @@
 													</tr>
 												</table>
 											</div>
-											<a href="{{slugProduk($myproduk)}}"><img src="{{URL::to(getPrefixDomain().'/produk/thumb/'.$myproduk->gambar1)}}" alt="{{$myproduk->nama}}" width="155" height="155" /></a>
+											<a href="{{slugProduk($myproduk)}}">
+												{{HTML::image(product_image_url($myproduk->gambar1,'medium'),$myproduk->nama,array('width'=>'155','height'=>'155'))}}
+											</a>
 										</div>
 									</div>
 									<div class="text">
@@ -119,17 +121,18 @@
 												</tr>
 											</table>
 										</div>
-										<a href="#">{{imageProduk($item,array('width'=>94,'height'=>94))}}</a>
+										<a href="#">
+											{{HTML::image(product_image_url($item->gambar1,'medium'),'',array('style'=>'width:94px; height:94px;'))}}
+										</a>
 									</div>
 								</div>
 								<div class="text">
-									<h3><a href="#" class="custom-font-1">{{$item->nama}}</a></h3>
+									<h3><a href="#" class="custom-font-1">{{shortDescription($item->nama, 15)}}</a></h3>
 									<p><b class="custom-font-1">{{jadiRupiah($item->hargaJual)}}</b></p>
 									<a href="{{slugProduk($item)}}" class="more-link">Lihat</a>
 								</div>
 							</div>
 							@endforeach
-
 
 							<div class="clear"></div>
 
@@ -163,17 +166,18 @@
 												</tr>
 											</table>
 										</div>
-										<a href="#">{{imageProduk($item,array('width'=>94,'height'=>94))}}</a>
+										<a href="#">
+											{{HTML::image(product_image_url($item->gambar1,'medium'),'',array('style'=>'width:94px; height:94px;'))}}
+										</a>
 									</div>
 								</div>
 								<div class="text">
-									<h3><a href="#" class="custom-font-1">{{$item->nama}}</a></h3>
+									<h3><a href="#" class="custom-font-1">{{shortDescription($item->nama, 15)}}</a></h3>
 									<p><b class="custom-font-1">{{jadiRupiah($item->hargaJual)}}</b></p>
 									<a href="{{slugProduk($item)}}" class="more-link">Lihat</a>
 								</div>
 							</div>
 							@endforeach
-
 
 							<div class="clear"></div>
 

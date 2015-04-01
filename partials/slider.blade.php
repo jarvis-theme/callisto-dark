@@ -12,9 +12,11 @@
 			</div> 
 			@endif
 			
-			<a href="#"><img src="{{URL::to(getPrefixDomain().'/galeri/'.$val->gambar.'?'.Time())}}" alt="{{$val->gambar}}" width="944" /></a>
+			<a href="#">
+				<img src="{{URL::to(getPrefixDomain().'/galeri/'.$val->gambar.'?'.Time())}}" alt="{{$val->gambar}}" style="width:944px" />
+			</a>
 		</div>
-            	@endforeach
+		@endforeach
 		
 	<!-- END #hompage-slider_content -->
 	</div>

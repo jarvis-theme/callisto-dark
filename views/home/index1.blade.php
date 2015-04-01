@@ -1,11 +1,11 @@
-<!-- BEGIN .catalog -->
+			<!-- BEGIN .catalog -->
 
-					<!-- BEGIN .message-welcome -->
+				<!-- BEGIN .message-welcome -->
 				<!-- <div class="message-welcome" style="text-align: center; padding: 23px 0px 30px 0; background:none"> -->
 				<div class="homepage-slider">
 					<div id="hompage-slider_content" style="text-align: center; padding: 1px 0 30px; height: auto;">
-					@foreach(getBanner(2) as $banner)
-						<a href="{{URL::to($banner->url)}}"><img src="{{URL::to(getPrefixDomain().'/galeri/'.$banner->gambar)}}"/></a>
+					@foreach(horizontal_banner() as $banner)
+						<a href="{{URL::to($banner->url)}}">{{HTML::image(banner_image_url($banner->gambar))}}</a>
 					@endforeach
 				<!-- END .message-welcome -->
 					</div>
@@ -40,7 +40,9 @@
 												</tr>
 											</table>
 										</div>
-										<a href="{{slugProduk($myproduk)}}"><img src="{{URL::to(getPrefixDomain().'/produk/'.$myproduk->gambar1)}}" alt="{{$myproduk->nama}}" width="294" style="left: 50%; margin-left: -147px; top: 50%; margin-top: -188px;" /></a>
+										<a href="{{slugProduk($myproduk)}}">
+											{{HTML::image(product_image_url($myproduk->gambar1),'',array('width'=>'294','style'=>'left: 50%; margin-left: -147px; top: 50%; margin-top: -188px;'))}}
+										</a>
 									</div>
 								</div>
 								<h3><a href="{{slugProduk($myproduk)}}" class="custom-font-1">{{$myproduk->nama}}</a></h3>
@@ -126,8 +128,10 @@
 					</div>
 
 					<div class="items">
-						@foreach(getBanner(1) as $banner)
-							<a target="_blank" href="{{URL::to($banner->url)}}"><img src="{{URL::to(getPrefixDomain().'/galeri/'.$banner->gambar)}}"/></a>
+						@foreach(vertical_banner() as $banner)
+							<a target="_blank" href="{{URL::to($banner->url)}}">
+							{{HTML::image(banner_image_url($banner->gambar))}}
+							</a>
 						@endforeach
 					</div>
 					<div class="clear"></div>

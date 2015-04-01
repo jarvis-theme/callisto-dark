@@ -1,4 +1,4 @@
-<!-- BEGIN .main-left-wrapper -->
+				<!-- BEGIN .main-left-wrapper -->
 				<div class="main-left-wrapper">
 
 					<!-- BEGIN .post-wrapper -->
@@ -18,7 +18,8 @@
 
 					<div class="comments-wrapper">
 						{{$fbscript}}
-						{{$fbcomment}}
+						{{--$fbcomment--}}
+						{{fbcommentbox(blog_url($detailblog), 650, 5, 'light')}}
 					</div>
 
 					<div class="pages custom-font-1">
@@ -90,9 +91,7 @@
 						<br><br><br>
 
 					<!-- END .recent-activity -->
-					</div>
-
-					
+					</div>				
 
 				<!-- END .main-sidebar-wrapper -->
 				</div>

@@ -1,5 +1,5 @@
-<div class="main-title">
-					<p class="custom-font-1">Biodata dan Order Histori</p>
+				<div class="main-title">
+					<p class="custom-font-1">Biodata dan Order History</p>
 				</div>
 
 				<!-- BEGIN .single-full-width -->
@@ -9,7 +9,7 @@
 						<div class="content">
 							<h3 class="custom-font-1">Profile</h3>
 							<p>Nama: {{$user->nama}}</p>
-							<p class="email">Email:{{$user->email}}</p>
+							<p class="email">Email: {{$user->email}}</p>
 							<p>Alamat: {{$user->alamat}}</p>
 							<p>Kode Pos: {{$user->kodepos}}</p>
 							<p>Telpon: {{$user->telp}}</p>
@@ -22,7 +22,7 @@
 						<div class="row title">
 							<div class="date">Order</div>
 							<div class="date">Date</div>
-							<div class="payment">Payment statuss</div>
+							<div class="payment">Payment status</div>
 							<div class="order">Total</div>
 							<div class="total"></div>
 						</div>
@@ -46,7 +46,13 @@
 								@endif
 							</div>
 							<div class="order">{{ jadiRupiah($item->total)}}</div>
-							<div class="total">@if($item->status==0)<a href="{{URL::to('konfirmasiorder/'.$item->id)}}" class="button-1 custom-font-1 trans-1"><span style="font-size: 12px">Konfirmasi</span></a>@endif</div>
+							<div class="total">
+							@if($item->status==0)
+								<a href="{{URL::to('konfirmasiorder/'.$item->id)}}" class="button-1 custom-font-1 trans-1">
+									<span style="font-size: 12px">Konfirmasi</span>
+								</a>
+							@endif
+							</div>
 							
 						</div>
 						@endforeach

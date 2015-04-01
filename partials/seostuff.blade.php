@@ -11,3 +11,4 @@
 <meta name="DC.Title" content="{{$title}}">
 <meta name="DC.Subject" content="{{$keywords}}">
 <meta name="DC.Description" content="{{$description}}">
+<link rel="callisto-dark-theme" href="{{dirTemaToko()}}callisto-dark/">

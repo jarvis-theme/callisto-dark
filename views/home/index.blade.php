@@ -1,7 +1,7 @@
 <div class="homepage-slider">
     <div id="hompage-slider_content" style="text-align: center; padding: 1px 0 30px; height: auto;">
-    @foreach(getBanner(2) as $banner)
-        <a href="{{URL::to($banner->url)}}"><img src="{{URL::to(getPrefixDomain().'/galeri/'.$banner->gambar)}}"/></a>
+    @foreach(horizontal_banner() as $banner)
+        <a href="{{URL::to($banner->url)}}">{{HTML::image(banner_image_url($banner->gambar))}}</a>
     @endforeach
 <!-- END .message-welcome -->
     </div>
@@ -20,7 +20,7 @@
             @foreach($produk as $key=>$myproduk)
                 <div class="item-block-1">
                     <div class="image-wrapper-3" style="position: relative;">
-			{{is_terlaris($myproduk)}}
+                        {{is_terlaris($myproduk)}}
                         {{is_produkbaru($myproduk)}}
                         {{is_outstok($myproduk)}}
                         <div class="image">
@@ -33,7 +33,9 @@
                                     </tr>
                                 </table>
                             </div>
-                            <a href="{{slugProduk($myproduk)}}"><img src="{{URL::to(getPrefixDomain().'/produk/'.$myproduk->gambar1)}}" alt="" width="214" style="left: 50%; margin-left: -107px; top: 50%; margin-top: -106px;" /></a>
+                            <a href="{{slugProduk($myproduk)}}">
+                                {{HTML::image(product_image_url($myproduk->gambar1),'',array('width'=>'214','style'=>'left: 50%; margin-left: -107px; top: 50%; margin-top: -106px;'))}}
+                            </a>
                         </div>
                     </div>
                     <h3><a href="{{slugProduk($myproduk)}}" class="custom-font-1">{{$myproduk->nama}}</a></h3>

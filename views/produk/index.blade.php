@@ -45,7 +45,6 @@
 	<div class="items-wrapper">
 		<div class="items">
 
-
 			@foreach($produk as $myproduk)
 			<div class="item-block-2">
 				@if($myproduk->koleksiId!=0)
@@ -55,8 +54,8 @@
                 @endif
 				<div class="image-wrapper-3" style="position: relative;">
 					{{is_terlaris($myproduk)}}
-                                    	{{is_produkbaru($myproduk)}}
-                                    	{{is_outstok($myproduk)}}
+                	{{is_produkbaru($myproduk)}}
+                	{{is_outstok($myproduk)}}
 					<div class="image">
 						<div class="image-overlay-1 trans-1">
 							<table>
@@ -67,10 +66,12 @@
 								</tr>
 							</table>
 						</div>
-						<a href="{{slugProduk($myproduk)}}"><img src="{{URL::to(getPrefixDomain().'/produk/'.$myproduk->gambar1)}}" alt="{{$myproduk->nama}}" width="294" style="left: 50%; margin-left: -148px; top: 50%; margin-top: -148px;" /></a>
+						<a href="{{slugProduk($myproduk)}}">
+							{{HTML::image(product_image_url($myproduk->gambar1),'$myproduk->nama',array('style'=>'left: 50%; margin-left: -148px; top: 50%; margin-top: -148px; width:294px;'))}}
+						</a>
 					</div>
 				</div>
-				<h3><a href="{{slugProduk($myproduk)}}" class="custom-font-1">{{$myproduk->nama}}</a></h3>
+				<h3><a href="{{slugProduk($myproduk)}}" class="custom-font-1">{{shortDescription($myproduk->nama, 90)}}</a></h3>
 				<p><b class="custom-font-1">{{jadiRupiah($myproduk->hargaJual)}}</b></p>
 			</div>
 			@endforeach

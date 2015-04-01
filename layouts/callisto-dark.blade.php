@@ -21,8 +21,8 @@
 
             {{ Theme::partial('footer') }}
             {{ Theme::partial('defaultjs') }}
-	        {{ Theme::asset()->scripts() }}
-            {{ Theme::asset()->container('footer')->scripts() }}
+	        {{-- Theme::asset()->scripts() --}}
+            {{-- Theme::asset()->container('footer')->scripts() --}}
             {{ Theme::partial('analytic') }}
         </div>
     </body>

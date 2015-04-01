@@ -14,4 +14,4 @@
 	@endif
 
 	<!-- Icon Logo -->
-	<link rel="shortcut icon" href="{{URL::to(getPrefixDomain().'/galeri/'.$toko->logo)}}">
+	{{createFavicon($toko)}}
