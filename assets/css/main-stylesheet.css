@@ -1115,3 +1115,84 @@ div.selector:hover { opacity: 1; }
     width: 85px;
 }
 }
+
+.pull-right{float: right;}
+.label {
+  display: inline;
+  padding: .2em .6em .3em;
+  /*font-size: 75%;*/
+  font-weight: bold;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+}
+.label-default {
+  background-color: #777;
+}
+.label-default[href]:hover,
+.label-default[href]:focus {
+  background-color: #5e5e5e;
+}
+.label-primary {
+  background-color: #337ab7;
+}
+.label-primary[href]:hover,
+.label-primary[href]:focus {
+  background-color: #286090;
+}
+.label-success {
+  background-color: #5cb85c;
+}
+.label-success[href]:hover,
+.label-success[href]:focus {
+  background-color: #449d44;
+}
+.label-info {
+  background-color: #5bc0de;
+}
+.label-info[href]:hover,
+.label-info[href]:focus {
+  background-color: #31b0d5;
+}
+.label-warning {
+  background-color: #f0ad4e;
+}
+.label-warning[href]:hover,
+.label-warning[href]:focus {
+  background-color: #ec971f;
+}
+.label-danger {
+  background-color: #d9534f;
+}
+.label-danger[href]:hover,
+.label-danger[href]:focus {
+  background-color: #c9302c;
+}
+
+.breadcurm li{
+	float:left;
+}
+.breadcurm li a{
+	font-size: 16px;
+	margin-right: 12px;
+}
+.main-title p a{
+	float:left;
+	float:left; 
+	font-size: 17px; 
+	bottom: -8px; 
+	position: relative;
+	font-weight: normal;
+}
+
+.main-title p span{
+	float:left; 
+	font-size: 17px; 
+	bottom: -8px; 
+	position: relative;
+	font-weight: normal;
+	margin: 0 5px;
+}

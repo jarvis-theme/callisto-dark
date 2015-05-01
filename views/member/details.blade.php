@@ -13,12 +13,12 @@
 							<p>Alamat: {{$user->alamat}}</p>
 							<p>Kode Pos: {{$user->kodepos}}</p>
 							<p>Telpon: {{$user->telp}}</p>
-							<a href="{{URL::to('member/profile/edit')}}">Edit Profile</a>
+							<a href="{{url('member/profile/edit')}}">Edit Profile</a>
 						</div>
 					</div>
 
 					<div class="order-history">
-						@if($order->count()>0)
+					@if($order->count() > 0)
 						<div class="row title">
 							<div class="date">Order</div>
 							<div class="date">Date</div>
@@ -27,7 +27,7 @@
 							<div class="total"></div>
 						</div>
 
-						@foreach ($order as $item)
+						@foreach (list_order(10) as $item)
 	
 						<div class="row">
 							<div class="date"><a href="#">{{prefixOrder()}}{{$item->kodeOrder}}</a></div>
@@ -36,19 +36,19 @@
 								@if($item->status==0)
 								<span class="label label-warning">Pending</span>
 								@elseif($item->status==1)
-								<span class="label label-important">Konfirmasi diterima</span>
+								<span class="label label-success">Konfirmasi diterima</span>
 								@elseif($item->status==2)
-								<span class="label label-info">Pembayaran diterima</span>
+								<span class="label label-green">Pembayaran diterima</span>
 								@elseif($item->status==3)
 								<span class="label label-info">Terkirim</span>
 								@elseif($item->status==4)
-								<span class="label label-info">Batal</span>
+								<span class="label label-default">Batal</span>
 								@endif
 							</div>
-							<div class="order">{{ jadiRupiah($item->total)}}</div>
+							<div class="order">{{ price($item->total)}}</div>
 							<div class="total">
-							@if($item->status==0)
-								<a href="{{URL::to('konfirmasiorder/'.$item->id)}}" class="button-1 custom-font-1 trans-1">
+							@if($item->status == 0)
+								<a href="{{url('konfirmasiorder/'.$item->id)}}" class="button-1 custom-font-1 trans-1">
 									<span style="font-size: 12px">Konfirmasi</span>
 								</a>
 							@endif
@@ -57,11 +57,11 @@
 						</div>
 						@endforeach
 						<div class="pages custom-font-1">
-							{{$order->links()}}
+							{{list_order(10)->links()}}
 						</div>
-						@else
-							<center><h4>Daftar order anda masih kosong.</h4></center>
-						@endif
+					@else
+						<center><h4>Daftar order anda masih kosong.</h4></center>
+					@endif
 					</div>
 
 					<div class="clear"></div>

@@ -6,13 +6,11 @@
 					</div>
 
 					<div class="blog-list">
-
 						@if($jumlahCari!=0)
-
 							@foreach($hasilpro as $myproduk)
 								<div class="item search-result">
 									<div class="title custom-font-1">
-										<a href="{{slugProduk($myproduk)}}">{{$myproduk->nama}}</a>
+										<a href="{{product_url($myproduk)}}">{{$myproduk->nama}}</a>
 									</div>
 									<!-- <div class="title-legend">
 										<a href="#" class="date">May 23, 2012</a>
@@ -25,19 +23,19 @@
 												<table>
 													<tr>
 														<td>
-															<a href="{{slugProduk($myproduk)}}" class="button-2 trans-1"></a>
+															<a href="{{product_url($myproduk)}}" class="button-2 trans-1"></a>
 														</td>
 													</tr>
 												</table>
 											</div>
-											<a href="{{slugProduk($myproduk)}}">
+											<a href="{{product_url($myproduk)}}">
 												{{HTML::image(product_image_url($myproduk->gambar1,'medium'),$myproduk->nama,array('width'=>'155','height'=>'155'))}}
 											</a>
 										</div>
 									</div>
 									<div class="text">
-										<p>{{shortDescription($myproduk->deskripsi,100)}}</p>
-										<p><a href="{{slugProduk($myproduk)}}" class="more-link">Lihat</a></p>
+										<p>{{short_description($myproduk->deskripsi,100)}}</p>
+										<p><a href="{{product_url($myproduk)}}" class="more-link">Lihat</a></p>
 									</div>
 								</div>
 
@@ -54,7 +52,7 @@
 										<a href="#" class="share">Share this post</a>
 									</div>
 									<div class="text">
-										{{shortDescription($myhal->isi,100)}}
+										{{short_description($myhal->isi,100)}}
 										<p><a href="{{URL::to('halaman/'.$myhal->slug)}}" class="more-link">Baca Selengkapnya</a></p>
 									</div>
 								</div>
@@ -72,7 +70,7 @@
 										<a href="#" class="share">Share this post</a>
 									</div>
 									<div class="text">
-										{{shortDescription($myblog->isi,100)}}
+										{{short_description($myblog->isi,100)}}
 										<p><a href="{{URL::to('blog/'.$myblog->slug)}}" class="more-link">Baca Selengkapnya</a></p>
 									</div>
 								</div>
@@ -80,7 +78,7 @@
 							@endforeach
 					@else
 						<article style="text-align: center; border: 0;">
-							<i>Hasil tidak ditemukan</i>
+							<i>Data tidak ditemukan</i>
 						</article>
 					@endif
 				
@@ -95,17 +93,14 @@
 
 				<!-- BEGIN .main-sidebar-wrapper -->
 				<div class="main-sidebar-wrapper">
-
 					<!-- BEGIN .sidebar-best-sellers -->
 					<div class="sidebar-best-sellers sidebar-item">
-
 						<div class="main-title">
 							<p class="custom-font-1">Best sellers</p>
 						</div>
 
 						<div class="items">
-
-							@foreach($bestseller as $item)
+							@foreach(best_seller() as $item)
 							<div class="item">
 								<!-- <div class="item-tag tag-off custom-font-1">
 									<span>20% off</span>
@@ -116,7 +111,7 @@
 											<table>
 												<tr>
 													<td>
-														<a href="{{slugProduk($item)}}" class="button-2 trans-1"></a>
+														<a href="{{product_url($item)}}" class="button-2 trans-1"></a>
 													</td>
 												</tr>
 											</table>
@@ -127,9 +122,9 @@
 									</div>
 								</div>
 								<div class="text">
-									<h3><a href="#" class="custom-font-1">{{shortDescription($item->nama, 15)}}</a></h3>
-									<p><b class="custom-font-1">{{jadiRupiah($item->hargaJual)}}</b></p>
-									<a href="{{slugProduk($item)}}" class="more-link">Lihat</a>
+									<h3><a href="#" class="custom-font-1">{{short_description($item->nama, 15)}}</a></h3>
+									<p><b class="custom-font-1">{{price($item->hargaJual)}}</b></p>
+									<a href="{{product_url($item)}}" class="more-link">Lihat</a>
 								</div>
 							</div>
 							@endforeach
@@ -143,14 +138,12 @@
 
 					<!-- BEGIN .sidebar-best-sellers -->
 					<div class="sidebar-best-sellers sidebar-item">
-
 						<div class="main-title">
 							<p class="custom-font-1">Featured</p>
 						</div>
 
 						<div class="items">
-
-							@foreach($featured as $item)
+							@foreach(featured_product() as $item)
 							<div class="item">
 								<!-- <div class="item-tag tag-off custom-font-1">
 									<span>20% off</span>
@@ -161,7 +154,7 @@
 											<table>
 												<tr>
 													<td>
-														<a href="{{slugProduk($item)}}" class="button-2 trans-1"></a>
+														<a href="{{product_url($item)}}" class="button-2 trans-1"></a>
 													</td>
 												</tr>
 											</table>
@@ -172,9 +165,9 @@
 									</div>
 								</div>
 								<div class="text">
-									<h3><a href="#" class="custom-font-1">{{shortDescription($item->nama, 15)}}</a></h3>
-									<p><b class="custom-font-1">{{jadiRupiah($item->hargaJual)}}</b></p>
-									<a href="{{slugProduk($item)}}" class="more-link">Lihat</a>
+									<h3><a href="#" class="custom-font-1">{{short_description($item->nama, 15)}}</a></h3>
+									<p><b class="custom-font-1">{{price($item->hargaJual)}}</b></p>
+									<a href="{{product_url($item)}}" class="more-link">Lihat</a>
 								</div>
 							</div>
 							@endforeach

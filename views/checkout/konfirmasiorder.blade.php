@@ -33,8 +33,8 @@
 							<li>{{$detail->produk->nama}} {{$detail->opsiSkuId !=0 ? '('.$detail->opsisku->opsi1.($detail->opsisku->opsi2 != '' ? ' / '.$detail->opsisku->opsi2:'').($detail->opsisku->opsi3 !='' ? ' / '.$detail->opsisku->opsi3:'').')':''}} - {{$detail->qty}}</li>
 						@endforeach	
 					</div>
-					<div class="price">{{jadiRupiah($order->total)}}</div>
-					<div class="total">- {{($order->status==2 || $order->status==3) ? jadiRupiah(0) : jadiRupiah($order->total)}}</div>
+					<div class="price">{{price($order->total)}}</div>
+					<div class="total">- {{($order->status==2 || $order->status==3) ? price(0) : price($order->total)}}</div>
 					<div class="total">
 						@if($order->noResi!="")
 							{{$order->noResi}}

@@ -5,7 +5,10 @@
 		<p class="" style="font-size: large;">
 			{{breadcrumbProduk($produk,'; <span>/</span>',';',true)}}
 		</p>
-		<a onclick="window.open(this.href, 'mywin', 'left=20, top=20, width=500, height=500, toolbar=1, resizable=0'); return false;" href="https://www.facebook.com/sharer/sharer.php?u={{slugProduk($produk)}}" class="share">share this item</a>
+		<!-- <a onclick="window.open(this.href, 'mywin', 'left=20, top=20, width=500, height=500, toolbar=1, resizable=0'); return false;" href="https://www.facebook.com/sharer/sharer.php?u={{product_url($produk)}}" class="share">share this item</a> -->
+		<a class="pull-right twitter-share-button" href="https://twitter.com/share" data-count="none">Tweet </a>
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>&nbsp;&nbsp;
+		<iframe class="pull-right" src="//www.facebook.com/plugins/share_button.php?href={{URL::to(product_url($produk))}}&amp;layout=button" scrolling="no" frameborder="0" style="border:none; overflow:hidden;height:20px;width:70px;" allowTransparency="true"></iframe>
 	</div>
 
 	<div class="main-image">
@@ -96,9 +99,9 @@
 		<h2 class="custom-font-1"><a href="#">{{$produk->nama}}</a></h2>
 		<div class="price custom-font-1" >
 			<div style="width: auto">
-				<p>{{ jadiRUpiah($produk->hargaJual) }}</p>
+				<p>{{ price($produk->hargaJual) }}</p>
 				@if($produk->hargaCoret != 0)
-				<p><s>{{ jadiRUpiah($produk->hargaCoret) }}</s></p>
+				<p><s>{{ price($produk->hargaCoret) }}</s></p>
 				@endif
 			</div>
 			
@@ -123,7 +126,7 @@
 								@foreach ($opsiproduk as $key => $opsi)
 								<option value="{{$opsi->id}}" {{ $opsi->stok==0 ? 'disabled':''}} >
 									
-									{{$opsi->opsi1.($opsi->opsi2=='' ? '':' / '.$opsi->opsi2).($opsi->opsi3=='' ? '':' / '.$opsi->opsi3)}} {{jadiRupiah($opsi->harga)}}
+									{{$opsi->opsi1.($opsi->opsi2=='' ? '':' / '.$opsi->opsi2).($opsi->opsi3=='' ? '':' / '.$opsi->opsi3)}} {{price($opsi->harga)}}
 									
 								</option>
 								@endforeach
@@ -136,10 +139,8 @@
 				<div class="item">
 					<button class="button-3 custom-font-1 trans-1 add_cart"><span>Masukan ke Keranjang</span></button>
 				</div>
-				
 			</form>
 		</div>
-
 		
 		<div class="description">
 			<div class="button-navigation custom-font-1">
@@ -171,7 +172,7 @@
 <!-- END .main-item-wrapper -->
 </div>
 
-@if(count($produklain) > 0)
+@if(count(other_product($produk)) > 0)
 <!-- BEGIN .related-items -->
 <div class="featured-items related-items">
 	<div class="main-title">
@@ -180,8 +181,7 @@
 
 	<div class="items-wrapper">
 		<div class="items">
-
-			@foreach($produklain as $myproduk)
+			@foreach(other_product($produk) as $myproduk)
 			<div class="item-block-1" >
 				<!-- <div class="item-tag tag-off custom-font-1">
 					<span>Sale</span>
@@ -196,7 +196,7 @@
 							<table>
 								<tr>
 									<td>
-										<a href="{{slugProduk($myproduk)}}" class="button-1 custom-font-1 trans-1"><span>Lihat</span></a>
+										<a href="{{product_url($myproduk)}}" class="button-1 custom-font-1 trans-1"><span>Lihat</span></a>
 									</td>
 								</tr>
 							</table>
@@ -206,8 +206,8 @@
 						</a>
 					</div>
 				</div>
-				<h3><a href="{{slugProduk($myproduk)}}" class="custom-font-1">{{$myproduk->nama}}</a></h3>
-				<p><b class="custom-font-1">{{jadiRupiah($myproduk->hargaJual)}}</b></p>
+				<h3><a href="{{product_url($myproduk)}}" class="custom-font-1">{{$myproduk->nama}}</a></h3>
+				<p><b class="custom-font-1">{{price($myproduk->hargaJual)}}</b></p>
 			</div>
 			@endforeach	
 		</div>

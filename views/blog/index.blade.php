@@ -7,19 +7,19 @@
 
 					<div class="blog-list">
 
-						@foreach($data as $key=>$value)
+						@foreach(list_blog(5,@$blog_category) as $key=>$value)
 						<div class="item">
 							<div class="title custom-font-1">
-								<a href="{{URL::to("blog/".$value->slug)}}">{{$value->judul}}</a>
+								<a href="{{blog_url($value)}}">{{$value->judul}}</a>
 							</div>
 							<div class="title-legend">
 								<a href="#" class="date">{{date("d M Y", strtotime($value->updated_at))}}</a>
 								<!-- <a href="#" class="comments">9</a> -->
-								<a onclick="window.open(this.href, 'mywin', 'left=20, top=20, width=500, height=500, toolbar=1, resizable=0'); return false;" href="https://www.facebook.com/sharer/sharer.php?u={{URL::to('blog/'.$value->slug)}}" class="share">Bagi post ini</a>
+								<a onclick="window.open(this.href, 'mywin', 'left=20, top=20, width=500, height=500, toolbar=1, resizable=0'); return false;" href="https://www.facebook.com/sharer/sharer.php?u={{blog_url($value)}}" class="share">Bagi post ini</a>
 							</div>
 							<div class="text">
-								<p>{{firstPara($value->isi,0,250)}}</p>
-								<p><a href="{{URL::to("blog/".$value->slug)}}" class="more-link">Baca Selengkapnya</a></p>
+								<p>{{short_description($value->isi,250)}}</p>
+								<p><a href="{{blog_url($value)}}" class="more-link">Baca Selengkapnya</a></p>
 							</div>
 						</div>
 						@endforeach
@@ -27,7 +27,7 @@
 					</div>
 
 					<div class="pages custom-font-1">
-						{{$data->links()}}
+						{{list_blog(5,@$blog_category)->links()}}
 					</div>
 
 				<!-- END .main-left-wrapper -->
@@ -44,8 +44,8 @@
 						<form action="#">
 							<select onchange="if(this.options[this.selectedIndex].value != ''){window.top.location.href=this.options[this.selectedIndex].value}">
 								<option>select category</option>
-								@foreach($categoryList as $key=>$value)
-									<option value="{{URL::to('blog/category/'.generateSlug($value))}}">{{$value->nama}}</option>
+								@foreach(list_blog_category() as $key=>$value)
+									<option value="{{blog_category_url($value)}}">{{$value->nama}}</option>
 								@endforeach
 							</select>
 						</form>
@@ -76,12 +76,12 @@
 							@foreach(recentBlog() as $recent)
 							<div class="item">
 								<div class="text">
-									<h3><a href="#" class="custom-font-1">{{$recent->judul}}</a></h3>
+									<h3><a href="{{blog_url($recent)}}" class="custom-font-1">{{$recent->judul}}</a></h3>
 									<div class="title-legend">
 										<a href="#" class="date">{{waktu($recent->updated_at)}}</a>
 										<!-- <a href="#" class="comments">9</a> -->
 									</div>
-									<a href="{{URL::to('blog/'.$recent->slug)}}" class="more-link">Baca Selengkapnya</a>
+									<a href="{{blog_url($recent)}}" class="more-link">Baca Selengkapnya</a>
 								</div>
 							</div>
 							@endforeach

@@ -4,19 +4,17 @@
 	
 <!-- BEGIN .single-full-width -->
 <div class="single-full-width">
-
 	<b style="font-size: 16px">Kebijakan Layanan</b>
-		{{$service->tos}}
+	{{$service->tos}}
 	<hr>
 	<b style="font-size: 16px">Kebijakan Pengembalian</b>
-		{{$service->refund}}
+	{{$service->refund}}
 
 	<hr>
 	<b style="font-size: 16px">Kebijakan Privasi</b>
-		{{$service->privacy}}
+	{{$service->privacy}}
 
 	<div class="clear"></div>
-
 <!-- END .single-full-width -->
 </div>
 

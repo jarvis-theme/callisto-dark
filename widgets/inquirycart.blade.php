@@ -1,1 +1,1 @@
-<a href="{{URL::to('checkout')}}">Keranjang Anda: <b>{{Shpcart::wishlist()->total_items()}} items</b></a>
+<a href="{{url('checkout')}}">Keranjang Anda: <b>{{Shpcart::wishlist()->total_items()}} items</b></a>

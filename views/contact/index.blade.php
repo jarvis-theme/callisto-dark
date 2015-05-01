@@ -34,7 +34,7 @@
 <!-- BEGIN .single-full-width -->
 <div class="single-full-width">
 	<div class="contact-form">
-		<form action="{{URL::to('kontak')}}" method="post">
+		<form action="{{url('kontak')}}" method="post">
 			<p>
 				<label>Nama anda:</label>
 				<input type="text" class="input-text-1" name='namaKontak' required />
@@ -64,7 +64,16 @@
 
 		<div class="text">
 			<p>Alamat:<br><b>{{$kontak->alamat}}</b></p>
-			<p>Telepon:<br><b>{{$kontak->telepon}}</b></p>
+			<p>Telepon:<br>
+			@if(empty($kontak->telepon) && empty($kontak->hp))
+			<b>-</b></p>
+			@elseif(!empty($kontak->telepon) && empty($kontak->hp))
+			<b>{{$kontak->telepon}}</b></p>
+			@elseif(empty($kontak->telepon) && !empty($kontak->hp))
+			<b>{{$kontak->hp}}</b></p>
+			@else
+			<b>{{$kontak->telepon.'&nbsp; - &nbsp;'.$kontak->hp}}</b>
+			@endif
 			<p>Email:<br><b>{{$kontak->email}}</b></p>	
 		</div>
 	</div>

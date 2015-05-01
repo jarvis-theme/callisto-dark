@@ -22,7 +22,7 @@
 		<div class="single-full-width customer">
 
 			<div class="login">
-				<form class="form-horizontal" action="{{URL::to('member/forgetpassword')}}" method="post">
+				<form class="form-horizontal" action="{{url('member/forgetpassword')}}" method="post">
 					<!-- <p class="input-error-wrapper"><span>Invalid login credentials</span></p> -->
 					<p>
 						<label>E-mail address:</label>
@@ -32,7 +32,7 @@
 					<p class="sign-in">
 						<label></label>
 						<button type="submit" class="button-1 custom-font-1 trans-1"><span>Reset Password</span></button>
-						<b>atau <a href="{{URL::to('produk')}}">ke Login</a></b>
+						<b>atau <a href="{{url('produk')}}">ke Login</a></b>
 					</p>
 				</form>
 			</div>
@@ -41,7 +41,7 @@
 				<div class="main-title">
 					<p class="custom-font-1">Pelanggan Baru</p>
 				</div>
-				<a href="{{URL::to('member/create')}}" class="button-1 custom-font-1 trans-1"><span>Daftar sebagai member</span></a>
+				<a href="{{url('member/create')}}" class="button-1 custom-font-1 trans-1"><span>Daftar sebagai member</span></a>
 			</div>
 
 			<div class="clear"></div>
