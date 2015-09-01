@@ -1,18 +1,3 @@
-	@if(Session::has('error'))
-		<div class="error" id='message' style='display:none'>							
-			{{Session::get('error')}}
-		</div>
-	@endif
-	@if(Session::has('success'))
-		<div class="success" id='message' style='display:none'>
-			<p>Selamat, anda sudah berhasil register. Silakan check email untuk mengetahui informasi akun anda.</p>					
-		</div>
-	@endif
-	@if(Session::has('errorrecovery'))
-		<div class="error" id='message' style='display:none'>
-			<p>Maaf, email anda tidak ditemukan.</p>					
-		</div>
-	@endif	
 	<div class="container">
 		<!-- Login Section -->
 		<section class="login">

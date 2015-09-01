@@ -1,14 +1,15 @@
 <!-- BEGIN .main-item-wrapper -->
 <div class="main-item-wrapper">
-
 	<div class="main-title">
 		<p class="" style="font-size: large;">
-			{{breadcrumbProduk($produk,'; <span>/</span>',';',true)}}
+			{{--breadcrumbProduk($produk,'; <span>/</span>',';',true)--}}
+			<a href="{{url('home')}}">Home&nbsp;/&nbsp;</a>
+			<a href="{{url('produk')}}">Produk&nbsp;/&nbsp;</a>
+			<a class="active">{{$produk->nama}}</a>
 		</p>
-		<!-- <a onclick="window.open(this.href, 'mywin', 'left=20, top=20, width=500, height=500, toolbar=1, resizable=0'); return false;" href="https://www.facebook.com/sharer/sharer.php?u={{product_url($produk)}}" class="share">share this item</a> -->
-		<a class="pull-right twitter-share-button" href="https://twitter.com/share" data-count="none">Tweet </a>
-		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>&nbsp;&nbsp;
-		<iframe class="pull-right" src="//www.facebook.com/plugins/share_button.php?href={{URL::to(product_url($produk))}}&amp;layout=button" scrolling="no" frameborder="0" style="border:none; overflow:hidden;height:20px;width:70px;" allowTransparency="true"></iframe>
+		<div class="sosmed">
+            {{sosialShare(url(product_url($produk)))}}
+        </div>
 	</div>
 
 	<div class="main-image">
@@ -16,29 +17,29 @@
 			<div id="single-product-slider">
 				@if($produk->gambar1!='')
 			    <div class="image">
-					<a href="#">
-						{{ HTML::image(product_image_url($produk->gambar1),'',array('width'=>'470')) }}
+                    <a class="fancybox" href="{{url(product_image_url($produk->gambar1,'large'))}}" title="{{$produk->nama}}">
+						{{ HTML::image(product_image_url($produk->gambar1,'large'),$produk->nama,array('width'=>'470')) }}
 					</a>
 				</div>
 			  	@endif
 			  	@if($produk->gambar2!='')			  	
 			    <div class="image">
-					<a href="#">
-						{{ HTML::image(product_image_url($produk->gambar2),'',array('width'=>'470')) }}
+                    <a class="fancybox" href="{{url(product_image_url($produk->gambar1,'large'))}}" title="{{$produk->nama}}">
+						{{ HTML::image(product_image_url($produk->gambar2,'large'),$produk->nama,array('width'=>'470')) }}
 					</a>
 				</div>
 			  	@endif
 			  	@if($produk->gambar3!='')			  	
 			    <div class="image">
-					<a href="#">
-						{{ HTML::image(product_image_url($produk->gambar3),'',array('width'=>'470')) }}
+                    <a class="fancybox" href="{{url(product_image_url($produk->gambar1,'large'))}}" title="{{$produk->nama}}">
+						{{ HTML::image(product_image_url($produk->gambar3,'large'),$produk->nama,array('width'=>'470')) }}
 					</a>
 				</div>
 			  	@endif
 			  	@if($produk->gambar4!='')			  	
 			    <div class="image">
-					<a href="#">
-						{{ HTML::image(product_image_url($produk->gambar4),'',array('width'=>'470')) }}
+                    <a class="fancybox" href="{{url(product_image_url($produk->gambar1,'large'))}}" title="{{$produk->nama}}">
+						{{ HTML::image(product_image_url($produk->gambar4,'large'),$produk->nama,array('width'=>'470')) }}
 					</a>
 				</div>
 			  	@endif
@@ -52,18 +53,18 @@
 					<div class="image-wrapper-4 active">
 						<div class="image">
 							<a href="#">
-								{{ HTML::image(product_image_url($produk->gambar1,'thumb'),'',array('width'=>'60')) }}
+								{{ HTML::image(product_image_url($produk->gambar1,'thumb'),'thumbnail',array('width'=>'60')) }}
 							</a>
 						</div>
 					</div>
 				</td>
 			  	@endif
-			  	@if($produk->gambar4!='')			  	
+			  	@if($produk->gambar2!='')			  	
 			    <td>
 					<div class="image-wrapper-4 active">
 						<div class="image">
 							<a href="#">
-								{{ HTML::image(product_image_url($produk->gambar2,'thumb'),'',array('width'=>'60')) }}
+								{{ HTML::image(product_image_url($produk->gambar2,'thumb'),'thumbnail',array('width'=>'60')) }}
 							</a>
 						</div>
 					</div>
@@ -74,7 +75,7 @@
 					<div class="image-wrapper-4 active">
 						<div class="image">
 							<a href="#">
-								{{ HTML::image(product_image_url($produk->gambar3,'thumb'),'',array('width'=>'60')) }}
+								{{ HTML::image(product_image_url($produk->gambar3,'thumb'),'thumbnail',array('width'=>'60')) }}
 							</a>
 						</div>
 					</div>
@@ -85,7 +86,7 @@
 					<div class="image-wrapper-4 active">
 						<div class="image">
 							<a href="#">
-								{{ HTML::image(product_image_url($produk->gambar4,'thumb'),'',array('width'=>'60')) }}
+								{{ HTML::image(product_image_url($produk->gambar4,'thumb'),'thumbnail',array('width'=>'60')) }}
 							</a>
 						</div>
 					</div>
@@ -176,12 +177,12 @@
 <!-- BEGIN .related-items -->
 <div class="featured-items related-items">
 	<div class="main-title">
-		<p class="custom-font-1">Related items</p>
+		<p class="custom-font-1">Produk Lainnya</p>
 	</div>
 
 	<div class="items-wrapper">
 		<div class="items">
-			@foreach(other_product($produk) as $myproduk)
+			@foreach(other_product($produk,4) as $myproduk)
 			<div class="item-block-1" >
 				<!-- <div class="item-tag tag-off custom-font-1">
 					<span>Sale</span>
@@ -202,7 +203,7 @@
 							</table>
 						</div>
 						<a href="#">
-							{{HTML::image(product_image_url($myproduk->gambar1),$myproduk->nama,array('width'=>'214','style'=>'left: 50%; margin-left: -107px; top: 50%; margin-top: -106px;'))}}
+							{{HTML::image(product_image_url($myproduk->gambar1,'medium'),$myproduk->nama,array('width'=>'214px','style'=>'left: 50%; margin-left: -107px; top: 50%; margin-top: -106px;'))}}
 						</a>
 					</div>
 				</div>

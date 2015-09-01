@@ -33,7 +33,7 @@
                             </table>
                         </div>
                         <a href="{{product_url($myproduk)}}">
-                            {{HTML::image(product_image_url($myproduk->gambar1),'',array('width'=>'214','style'=>'left: 50%; margin-left: -107px; top: 50%; margin-top: -106px;'))}}
+                            {{HTML::image(product_image_url($myproduk->gambar1,'medium'),'produk',array('width'=>'214px','style'=>'left: 50%; margin-left: -107px; top: 50%; margin-top: -106px;'))}}
                         </a>
                     </div>
                 </div>
@@ -86,13 +86,11 @@
         </div>
         @endforeach 
     </div>
-
 <!-- END .homepage-latest-news -->
 </div>
 
 <!-- BEGIN .homepage-best-sellers -->
 <div class="homepage-best-sellers">
-
     <div class="main-title">
         <p class="custom-font-1">Best sellers</p>
     </div>
@@ -106,12 +104,12 @@
                         <table>
                             <tr>
                                 <td>
-                                    <a href="{{product_image_url($best->gambar1)}}" class="button-2 trans-1"></a>
+                                    <a href="{{url(product_image_url($best->gambar1,'medium'))}}" class="button-2 trans-1"></a>
                                 </td>
                             </tr>
                         </table>
                     </div>
-                    <a href="{{product_image_url($best->gambar1)}}"><img src="{{product_image_url($best->gambar1)}}" width="94" height="94" /></a>
+                    <a href="{{url(product_image_url($best->gambar1,'medium'))}}"><img src="{{url(product_image_url($best->gambar1,'medium'))}}" width="94px" height="94px" /></a>
                 </div>
             </div>
             <div class="text">
@@ -122,7 +120,6 @@
         </div>
         @endforeach
     </div>
-
 <!-- END .homepage-best-sellers -->
 </div>
 

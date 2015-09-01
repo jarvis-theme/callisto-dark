@@ -1,11 +1,4 @@
-@if(Session::has('success'))
-<div class="success" id='message' style='display:none'>
-	<p>Terima kasih, konfirmasi anda sudah terkirim.</p>					
-</div>		
-@endif
-
 <div class="single-full-width customer customer-order">
-
 	<div class="main-title">
 		<p class="custom-font-1"><a href="#"><a href="#" class="active" style="color: #FEEBB7 !important;">Konfirmasi Order</a></p>
 		<a href="#" class="continue">Kembali</a>

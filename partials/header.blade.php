@@ -21,7 +21,7 @@
 <div class="main-header">
 	<div class="logo">
 		<a href="{{URL::to('home')}}">
-			{{HTML::image(logo_image_url($toko->logo),'',array('style'=>'max-height:120px'))}}
+            <img src="{{url(logo_image_url())}}" style="max-height:120px" /></a>
 		</a>
 		<!-- <a href="#" class="logo-icon custom-font-1"><span>Soulage</span></a> -->
 		<!-- <a href="#" class="logo-blank custom-font-1"><span>Mante&nbsp;and&nbsp;sons</span></a> -->

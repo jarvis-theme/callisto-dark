@@ -9,7 +9,62 @@ define(['jquery','jq_cycle','jq_uniform'], function($)
 				initScrollTop();
 				initAccountLogin();
 				initFormElements();
+				initAddressManage();
 		    });
+		    showOption();
+		};
+
+		var initAddressManage = function() {
+			$('.edit-address-btn').click(function(){
+				var editForm = 'edit_' + $(this).parents('.row').attr('id');				
+				$('#' + editForm ).slideDown(300);
+				return false;
+			});
+			
+			$('.address-edit-form-cancel').click(function(){
+				$(this).parents('.address-edit-form').slideUp(300);
+				return false;
+			});
+		};
+
+		var showOption = function(){
+			$('#view').change(function(){
+				/*id=this.value;
+				link = $(this).attr('data-rel');
+				// link = window.location.host;
+				arr = new Array();
+				data = getQueryVariable();
+				qry = '';
+				if(data['view']!=undefined){
+					if(qry==''){
+						qry = qry+'?show='+id;
+					}
+					else{
+						qry = qry+'&show='+id;
+					}
+				}else{
+					if(qry==''){
+						qry = qry+'?show='+id;
+					}
+					else{
+						qry = qry+'&show='+id;
+					}
+				}
+				window.location = link+qry;*/
+				// window.location.href = qry;
+				val = this.value;
+				
+			});
+		};
+		var getQueryVariable = function() {
+		    var query = window.location.search.substring(1);
+		    var vars = query.split('&');
+		    var rs = new Array();
+		    for (var i = 0; i < vars.length; i++) {
+		        var pair = vars[i].split('=');
+		        rs[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
+		    }
+		    return rs;
 		};
 
 		var initFormElements = function() {

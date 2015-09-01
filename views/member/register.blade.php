@@ -1,10 +1,3 @@
-@if(Session::has('error'))
-	<div class="alert alert-error">
-		<h3>Kami menemukan error berikut:</h3>
-		<p>{{Session::get('error')}}</p>
-	</div>
-@endif
-
 <!-- BEGIN .single-full-width -->
 <div class="single-full-width customer">
 	<div class="contact-form">
@@ -41,12 +34,12 @@
 			</p>
 			<p>
 				<label>Negara*:</label>						  	
-				{{Form::select('negara',array('' => '-- Pilih Negara --') + $negara,Input::old("provinsi"),array('required', 'id="negara" data-rel="chosen"'))}}
+				{{Form::select('negara',array('' => '-- Pilih Negara --') + $negara,Input::old("provinsi"),array('required', 'id'=>"negara", "data-rel"=>"chosen"))}}
 			</p>
 			<p>
 				<label>Provinsi*:</label>
 				<span id="provinsiPlace">
-				  	{{Form::select('provinsi',array('' => '-- Pilih Provinsi --'), Input::old("provinsi"),array('required', 'id="provinsi" data-rel="chosen"'))}}
+				  	{{Form::select('provinsi',array('' => '-- Pilih Provinsi --'), Input::old("provinsi"),array('required', 'id'=>"provinsi","data-rel"=>"chosen"))}}
 				</span>
 			</p>
 			<p>

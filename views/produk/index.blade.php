@@ -1,31 +1,19 @@
 <!-- BEGIN .catalog -->
 <div class="catalog">
-	<div class="main-title">
-			@if(!empty($kategoridetail))
-                <p class="">
-					{{breadcrumbProduk(null,'; <span>/</span>',';', true, $kategoridetail)}}
-				</p>
-            @else
-            <ul style="float:left" class="breadcurm">
-                <li><a>Produk</a></li>
-            </ul>
-            @endif
-		
+	<!-- <div class="main-title"> -->
 		<!-- <a href="#" class="grid-2">4 column view</a>
 		<a href="#" class="grid-1">3 column view</a> -->
-	</div>
+	<!-- </div> -->
 
 	<form action="#" class="navigation">
 		<label>Cari by Kategori:</label>
 		<div class="category">
 			<select onchange="if(this.options[this.selectedIndex].value != ''){window.top.location.href=this.options[this.selectedIndex].value}">
+			<!-- <select id="view" data-rel="{{URL::current()}}"> -->
 				<option>Semua produk</option>
-				@foreach(list_category() as $value)
+				@foreach($kategori as $value)
 				<option value="{{category_url($value)}}">{{$value->nama}}</option>
 				@endforeach
-				<!-- <option>Pull &amp; Bear</option>
-				<option>Reserved</option>
-				<option>United Colors of Benetton</option> -->
 			</select>
 		</div>
 		<!-- <label class="label-sort">Sort by:</label>
@@ -63,7 +51,7 @@
 							</table>
 						</div>
 						<a href="{{product_url($myproduk)}}">
-							{{HTML::image(product_image_url($myproduk->gambar1),'$myproduk->nama',array('style'=>'left: 50%; margin-left: -148px; top: 50%; margin-top: -148px; width:294px;'))}}
+							{{HTML::image(product_image_url($myproduk->gambar1),$myproduk->nama,array('style'=>'left: 50%; margin-left: -148px; top: 50%; margin-top: -148px; width:294px;'))}}
 						</a>
 					</div>
 				</div>
@@ -81,7 +69,6 @@
 	</div>
 
 	<div class="clear"></div>
-
 <!-- END .catalog -->
 </div>
 <br><br><br>

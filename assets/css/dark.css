@@ -1,5 +1,4 @@
-                                /* Reset */
-
+/* Reset */
 body { color: #eeeeee; background: url(../images/body-bg-dark-1.jpg) -10px -10px repeat; }
 
 ::selection { background-color: #ff6600; color: #fff; }
@@ -78,12 +77,12 @@ div.selector { background: url(../images/select-left-bg-dark-1.png) 0 0 no-repea
 		.item-block-2 p b { color: #5ed400; letter-spacing: 0; }
 
 .item-block-3 { background-color: rgba(255, 255, 255, 0.15); border: #000 1px solid; }
-	.item-block-3 .content { border: rgba(255, 255, 255, 0.15) 1px solid; }
+.item-block-3 .content { border: rgba(255, 255, 255, 0.15) 1px solid; }
 
 .back-to-the-top { background: url(../images/arrow-15.png) right 7px no-repeat; }
 .back-to-the-top:hover { color: #ff6600; background-position: right -189px; }
 
-.pages { background: url(../images/border-10.png) top left repeat-x; }
+.pages { background: url(../images/border-10.png) bottom left repeat-x; padding-bottom: 20px;}
 	.pages div a { color: #a4a4a4; }
 	.pages .previous { background: url(../images/arrow-18.png) 0 6px no-repeat; color: #a4a4a4; }
 	.pages .previous:hover { background-position: 0 -187px; }
@@ -91,7 +90,7 @@ div.selector { background: url(../images/select-left-bg-dark-1.png) 0 0 no-repea
 	.pages .next:hover { background-position: right -187px; }
 	.pages .active { color: #ff6600; background-color: rgba(255, 255, 255, 0.15); border: #000 1px solid; }
 	.pages .active:hover { color: #ff6600; }
-		.pages .active span { padding: 4px 9px; border: rgba(255, 255, 255, 0.15) 1px solid; }
+	.pages .active span { padding: 4px 9px; border: rgba(255, 255, 255, 0.15) 1px solid; }
 	.pages a:hover { color: #ff6600; }
 
 .button-navigation { font-size: 13px; }
@@ -101,15 +100,15 @@ div.selector { background: url(../images/select-left-bg-dark-1.png) 0 0 no-repea
 	.button-navigation span { float: left; padding: 6px 6px; }
 	.button-navigation .active { color: #ff6600; background-color: rgba(255, 255, 255, 0.15); border: #000 1px solid; }
 	.button-navigation .active:hover { color: #ff6600; }
-		.button-navigation .active span { padding: 4px 8px; border: rgba(255, 255, 255, 0.15) 1px solid; border-radius: 4px; }
+	.button-navigation .active span { padding: 4px 8px; border: rgba(255, 255, 255, 0.15) 1px solid; border-radius: 4px; }
 
 	.blockquote-1 blockquote { color: #feebb7; background: url(../images/ico-quotes-2.png) 0 7px no-repeat; }
 
-.s-tag { margin: 0 8px 8px 0; color: #fff; background-color: rgba(255, 255, 255, 0.15); border: #000 1px solid; border-radius: 4px; float: left; }
+.s-tag { margin: 0 8px 8px 0; color: #fff; background-color: rgba(255, 255, 255, 0.15); border: #000 1px solid; border-radius: 4px; float: left;padding: 2px 8px; }
 .s-tag:hover { color: #fff; background-color: rgba(255, 255, 255, 0.25); }
-		.s-tag span { padding: 2px 8px; border: rgba(255, 255, 255, 0.15) 1px solid; border-radius: 4px; float: left; font-size: 11px; font-weight: bold; }
+.s-tag span { padding: 2px 8px; border: rgba(255, 255, 255, 0.15) 1px solid; border-radius: 4px; float: left; font-size: 11px; font-weight: bold; }
 .s-tag-active { color: #ff6600;  background-color: rgba(0, 0, 0, 0.5); }
-	.s-tag-active span { border: rgba(255, 255, 255, 0.2) 1px solid; }
+.s-tag-active span { border: rgba(255, 255, 255, 0.2) 1px solid; }
 .s-tag-active:hover { color: #ff6600; background-color: rgba(0, 0, 0, 0.5); }
 
 
@@ -347,6 +346,4 @@ div.selector { background: url(../images/select-left-bg-dark-1.png) 0 0 no-repea
 
 			.main-item-wrapper .text .price div { width: 150px; }
 			.main-item-wrapper .text .price p { font-size: 25px; line-height: 34px; }
-
 }
-                            

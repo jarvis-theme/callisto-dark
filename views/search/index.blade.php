@@ -8,86 +8,79 @@
 					<div class="blog-list">
 						@if($jumlahCari!=0)
 							@foreach($hasilpro as $myproduk)
-								<div class="item search-result">
-									<div class="title custom-font-1">
-										<a href="{{product_url($myproduk)}}">{{$myproduk->nama}}</a>
-									</div>
-									<!-- <div class="title-legend">
-										<a href="#" class="date">May 23, 2012</a>
-										<a href="#" class="comments">9</a>
-										<a href="#" class="share">Share this post</a>
-									</div> -->
-									<div class="image-wrapper-1">
-										<div class="image">
-											<div class="image-overlay-1 trans-1">
-												<table>
-													<tr>
-														<td>
-															<a href="{{product_url($myproduk)}}" class="button-2 trans-1"></a>
-														</td>
-													</tr>
-												</table>
-											</div>
-											<a href="{{product_url($myproduk)}}">
-												{{HTML::image(product_image_url($myproduk->gambar1,'medium'),$myproduk->nama,array('width'=>'155','height'=>'155'))}}
-											</a>
+							<div class="item search-result">
+								<div class="title custom-font-1">
+									<a href="{{product_url($myproduk)}}">{{$myproduk->nama}}</a>
+								</div>
+								<!-- <div class="title-legend">
+									<a href="#" class="date">May 23, 2012</a>
+									<a href="#" class="comments">9</a>
+									<a href="#" class="share">Share this post</a>
+								</div> -->
+								<div class="image-wrapper-1">
+									<div class="image">
+										<div class="image-overlay-1 trans-1">
+											<table>
+												<tr>
+													<td>
+														<a href="{{product_url($myproduk)}}" class="button-2 trans-1"></a>
+													</td>
+												</tr>
+											</table>
 										</div>
-									</div>
-									<div class="text">
-										<p>{{short_description($myproduk->deskripsi,100)}}</p>
-										<p><a href="{{product_url($myproduk)}}" class="more-link">Lihat</a></p>
+										<a href="{{product_url($myproduk)}}">
+											{{HTML::image(product_image_url($myproduk->gambar1,'medium'),$myproduk->nama,array('width'=>'155','height'=>'155'))}}
+										</a>
 									</div>
 								</div>
+								<div class="text">
+									<p>{{short_description($myproduk->deskripsi,100)}}</p>
+									<p><a href="{{product_url($myproduk)}}" class="more-link">Lihat</a></p>
+								</div>
+							</div>
 
 							@endforeach
 
 							@foreach($hasilhal as $myhal)
-								<div class="item">
-									<div class="title custom-font-1">
-										<a href="{{URL::to('halaman/'.$myhal->slug)}}">{{$myhal->judul}}</a>
-									</div>
-									<div class="title-legend">
-										<a href="#" class="date">{{date("d M Y", strtotime($myhal->updated_at))}}</a>
-										<!-- <a href="#" class="comments">9</a> -->
-										<a href="#" class="share">Share this post</a>
-									</div>
-									<div class="text">
-										{{short_description($myhal->isi,100)}}
-										<p><a href="{{URL::to('halaman/'.$myhal->slug)}}" class="more-link">Baca Selengkapnya</a></p>
-									</div>
+							<div class="item">
+								<div class="title custom-font-1">
+									<a href="{{URL::to('halaman/'.$myhal->slug)}}">{{$myhal->judul}}</a>
 								</div>
-
+								<div class="title-legend">
+									<a href="#" class="date">{{date("d M Y", strtotime($myhal->updated_at))}}</a>
+									<!-- <a href="#" class="share">Share this post</a> -->
+								</div>
+								<div class="text">
+									{{short_description($myhal->isi,100)}}
+									<p><a href="{{URL::to('halaman/'.$myhal->slug)}}" class="more-link">Baca Selengkapnya</a></p>
+								</div>
+							</div>
 							@endforeach
 
 							@foreach($hasilblog as $myblog)
-								<div class="item">
-									<div class="title custom-font-1">
-										<a href="{{URL::to('blog/'.$myblog->slug)}}">{{$myblog->judul}}</a>
-									</div>
-									<div class="title-legend">
-										<a href="#" class="date">{{date("d M Y", strtotime($myblog->updated_at))}}</a>
-										<!-- <a href="#" class="comments">9</a> -->
-										<a href="#" class="share">Share this post</a>
-									</div>
-									<div class="text">
-										{{short_description($myblog->isi,100)}}
-										<p><a href="{{URL::to('blog/'.$myblog->slug)}}" class="more-link">Baca Selengkapnya</a></p>
-									</div>
+							<div class="item">
+								<div class="title custom-font-1">
+									<a href="{{blog_url($myblog)}}">{{$myblog->judul}}</a>
 								</div>
-
+								<div class="title-legend">
+									<a href="#" class="date">{{date("d M Y", strtotime($myblog->updated_at))}}</a>
+									<!-- <a href="#" class="share">Share this post</a> -->
+								</div>
+								<div class="text">
+									{{short_description($myblog->isi,100)}}
+									<p><a href="{{blog_url($myblog)}}" class="more-link">Baca Selengkapnya</a></p>
+								</div>
+							</div>
 							@endforeach
-					@else
-						<article style="text-align: center; border: 0;">
-							<i>Data tidak ditemukan</i>
-						</article>
-					@endif
-				
+						@else
+							<article style="text-align: center; border: 0;">
+								<i>Data tidak ditemukan</i>
+							</article>
+						@endif
 					</div>
 
 					<div class="pages custom-font-1">
-
 					</div>
-
 				<!-- END .main-left-wrapper -->
 				</div>
 
@@ -117,7 +110,7 @@
 											</table>
 										</div>
 										<a href="#">
-											{{HTML::image(product_image_url($item->gambar1,'medium'),'',array('style'=>'width:94px; height:94px;'))}}
+											{{HTML::image(product_image_url($item->gambar1,'medium'),$item->nama,array('style'=>'width:94px; height:94px;'))}}
 										</a>
 									</div>
 								</div>
@@ -130,9 +123,7 @@
 							@endforeach
 
 							<div class="clear"></div>
-
 						</div>
-
 					<!-- END .sidebar-best-sellers -->
 					</div>
 
@@ -160,7 +151,7 @@
 											</table>
 										</div>
 										<a href="#">
-											{{HTML::image(product_image_url($item->gambar1,'medium'),'',array('style'=>'width:94px; height:94px;'))}}
+											{{HTML::image(product_image_url($item->gambar1,'medium'),$item->nama,array('style'=>'width:94px; height:94px;'))}}
 										</a>
 									</div>
 								</div>
@@ -173,12 +164,9 @@
 							@endforeach
 
 							<div class="clear"></div>
-
 						</div>
-
 					<!-- END .sidebar-best-sellers -->
 					</div>
-
 				<!-- END .main-sidebar-wrapper -->
 				</div>
 

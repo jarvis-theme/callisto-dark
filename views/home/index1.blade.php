@@ -40,7 +40,7 @@
 							</table>
 						</div>
 						<a href="{{product_url($myproduk)}}">
-							{{HTML::image(product_image_url($myproduk->gambar1),'',array('width'=>'294','style'=>'left: 50%; margin-left: -147px; top: 50%; margin-top: -188px;'))}}
+							{{HTML::image(product_image_url($myproduk->gambar1,'medium'))}}
 						</a>
 					</div>
 				</div>
@@ -95,7 +95,7 @@
 </div>
 
 <!-- BEGIN .homepage-latest-news -->
-<div class="" style="float: left;margin: 0px 45px 0px 0px;width: 350px;">
+<div style="float: left;margin: 0px 45px 0px 0px;width: 350px;">
 	<div class="main-title">
 		<p class="custom-font-1">Testimonial</p>
 		<a href="{{url('testimoni')}}" class="view">Lihat semua</a>

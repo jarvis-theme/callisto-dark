@@ -4,13 +4,11 @@
 	
 <!-- BEGIN .single-full-width -->
 <div class="single-full-width">
-
 	{{$data->isi}}
 
 	<div class="clear"></div>
-
-<!-- END .single-full-width -->
 </div>
+<!-- END .single-full-width -->
 
 <div class="clear"></div>
 <br><br><br><br>
