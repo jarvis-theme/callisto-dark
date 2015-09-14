@@ -44,7 +44,7 @@ return array(
         'testimonial'=>4,    
     ),
     'banner' => true,
-    'themesColor' => true,
+    'themesColor' => false,
     'layout' => array(
         'index1'=>'Layout dengan sidebar'
     ),

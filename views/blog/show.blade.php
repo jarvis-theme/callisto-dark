@@ -4,15 +4,15 @@
 					<div class="post-wrapper">
 						<h2 class="post-title custom-font-1"><a href="#">{{$detailblog->judul}}</a></h2>
 						<div class="title-legend">
-							<a href="#" class="date">{{date("d M Y", strtotime($detailblog->updated_at))}}</a>
+							<a href="#" class="date">{{waktuTgl($detailblog->updated_at)}}</a>
 							<div class="sosmed">
 					            {{sosialShare(url(product_url($detailblog)))}}
 					        </div>
 						</div>
 
 						{{$detailblog->isi}}
-					<!-- END .post-wrapper -->
 					</div>
+					<!-- END .post-wrapper -->
 
 					<div class="pages custom-font-1">
 						<div>
@@ -32,10 +32,10 @@
 					<div class="comments-wrapper">
 						{{$fbscript}}
 						{{--$fbcomment--}}
-						{{fbcommentbox(blog_url($detailblog), 650, 5, 'light')}}
+						{{fbcommentbox(blog_url($detailblog), '100%', 5, 'light')}}
 					</div>
-				<!-- END .main-left-wrapper -->
 				</div>
+				<!-- END .main-left-wrapper -->
 
 				<!-- BEGIN .main-sidebar-wrapper -->
 				<div class="main-sidebar-wrapper">
@@ -48,12 +48,12 @@
 							<select onchange="if(this.options[this.selectedIndex].value != ''){window.top.location.href=this.options[this.selectedIndex].value}">
 								<option>select category</option>
 								@foreach(list_blog_category() as $key=>$value)
-									<option value="{{blog_category_url($value)}}">{{$value->nama}}</option>
+								<option value="{{blog_category_url($value)}}">{{$value->nama}}</option>
 								@endforeach
 							</select>
 						</form>
-					<!-- END .shop-by-category -->
 					</div>
+					<!-- END .shop-by-category -->
 
 					<!-- BEGIN .post-tags -->
 					<div class="post-tags sidebar-item">
@@ -62,8 +62,8 @@
 						</div>
 						{{ getTags('<span class="s-tag" style="text-decoration: underline;"></span>',$tag)}}	
 						<div class="clear"></div>
-					<!-- END .post-tags -->
 					</div>
+					<!-- END .post-tags -->
 
 					<!-- BEGIN .recent-activity -->
 					<div class="recent-activity sidebar-item">
@@ -76,19 +76,16 @@
 							<div class="text">
 								<h3><a href="{{blog_url($recent)}}" class="custom-font-1">{{$recent->judul}}</a></h3>
 								<div class="title-legend">
-									<a href="#" class="date">{{waktu($recent->updated_at)}}</a>
+									<a href="#" class="date">{{waktuTgl($recent->updated_at)}}</a>
 								</div>
-								<a href="{{blog_url($recent)}}" class="more-link">Read more</a>
+								<a href="{{blog_url($recent)}}" class="more-link">Baca selengkapnya</a>
 							</div>
 						</div>
 						@endforeach
 						<br><br><br>
-
-					<!-- END .recent-activity -->
 					</div>				
-
-				<!-- END .main-sidebar-wrapper -->
+					<!-- END .recent-activity -->
 				</div>
-
+				<!-- END .main-sidebar-wrapper -->
 				<div class="clear"></div>
 				<br><br><br>

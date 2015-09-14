@@ -20,9 +20,13 @@
 <!-- BEGIN .main-header -->
 <div class="main-header">
 	<div class="logo">
-		<a href="{{URL::to('home')}}">
+		@if(@getimagesize(url(logo_image_url())))
+        <a href="{{URL::to('home')}}">
             <img src="{{url(logo_image_url())}}" style="max-height:120px" /></a>
 		</a>
+        @else
+        <a href="{{url('home')}}" style="color:#5EC80C"><h1 style="font-family: Viga; font-size: 35px;">{{ shortText(Theme::place('title'),26) }}</h1></a>
+        @endif
 		<!-- <a href="#" class="logo-icon custom-font-1"><span>Soulage</span></a> -->
 		<!-- <a href="#" class="logo-blank custom-font-1"><span>Mante&nbsp;and&nbsp;sons</span></a> -->
 		<!-- <span class="custom-font-1">{{$toko->judul}}</span> -->
@@ -39,14 +43,14 @@
 	<div class="main-menu-iphone">
 		<div class="categories">
 			<span class="icon"></span>
-			<select>
-				@foreach($mainMenu as $key=>$link)
-					<option>{{$link->nama}}</option>
-				@endforeach
+			<select onchange="if(this.options[this.selectedIndex].value != ''){window.top.location.href=this.options[this.selectedIndex].value}">
+				@foreach(main_menu()->link as $menu)	
+				<option value="{{menu_url($menu)}}">{{$menu->nama}}</option>
+				@endforeach	
 			</select>
 		</div>
 		<div class="search-iphone">
-			<form action="#">
+			<form action="{{url('search')}}" method="post">
 				<input type="text" class="input-text-1 trans-1" placeholder="Cari" />
 			</form>
 		</div>
@@ -58,17 +62,9 @@
 			<tr>
 				<td>
 					<ul>
-						@foreach($mainMenu as $key=>$link)
-							@if($link->halaman=='1')
-								<li><a class="single" href={{"'".URL::to("halaman/".strtolower($link->linkTo))."'"}}>{{$link->nama}}</a></li>
-							@elseif($link->halaman=='2')
-								<li><a class="single" href={{"'".URL::to("blog/".strtolower($link->linkTo))."'"}}>{{$link->nama}}</a></li>
-							@elseif($link->url=='1')
-								<li><a class="single" href={{"'".URL::to(strtolower($link->linkTo))."'"}}>{{$link->nama}}</a></li>
-							@else
-								<li><a class="single" href={{"'".URL::to(strtolower($link->linkTo))."'"}}>{{$link->nama}}</a></li>
-							@endif
-						@endforeach
+						@foreach(main_menu()->link as $links)	
+						<li><a class="single" href="{{menu_url($links)}}">{{$links->nama}}</a></li>
+						@endforeach	
 					</ul>
 				</td>
 			</tr>
@@ -76,6 +72,5 @@
 	</div>
 
 	<div class="clear"></div>
-
-<!-- END .main-header -->	
 </div>
+<!-- END .main-header -->	

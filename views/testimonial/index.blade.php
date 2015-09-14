@@ -18,14 +18,13 @@
 			</div>
 		</div>
 		@endforeach
-
 	</div>
 
 	<div class="pages custom-font-1">
 		{{list_testimonial()->links()}}
 	</div>
-<!-- END .main-left-wrapper -->
 </div>
+<!-- END .main-left-wrapper -->
 
 <!-- BEGIN .main-sidebar-wrapper -->
 <div class="main-sidebar-wrapper">
@@ -39,10 +38,10 @@
 			<label>Testimonial</label><br><textarea style="width: 95%;" name="testimonial" class="textarea-1" required></textarea><br>
 			<button class="button-1 custom-font-1"><span style="background: none; padding: 5px 15px 5px 15px;">Kirim Testimonial</span></button>
 		</form>
-	<!-- END .shop-by-category -->
 	</div>
-<!-- END .main-sidebar-wrapper -->
+	<!-- END .shop-by-category -->
 </div>
+<!-- END .main-sidebar-wrapper -->
 
 <div class="clear"></div>
 <br><br><br>

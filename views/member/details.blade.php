@@ -17,47 +17,52 @@
 						</div>
 					</div>
 
-					<div class="order-history">
-					@if($order->count() > 0)
-						<div class="row title">
-							<div class="date">Order</div>
-							<div class="date">Date</div>
-							<div class="payment">Payment status</div>
-							<div class="order">Total</div>
-							<div class="total"></div>
+					<div class="col-xs-12 col-sm-8" id="table-order">
+					@if(list_order()->count() > 0)
+						<div class="table-responsive">
+							<table class="table">
+								<thead>
+									<tr>
+										<th class="date">Order</th>
+										<th class="date">Date</th>
+										<th class="payment">Payment status</th>
+										<th class="order">Total</th>
+										<th class="total"></th>
+									</tr>
+								</thead>
+								<tbody>
+								@foreach (list_order() as $item)
+									<tr>
+										<td><a href="#">{{prefixOrder()}}{{$item->kodeOrder}}</a></td>
+										<td>{{date("d M Y", strtotime($item->tanggalOrder))}}</td>
+										<td class="payment">
+											@if($item->status==0)
+											<span class="label label-warning">Pending</span>
+											@elseif($item->status==1)
+											<span class="label label-important">Konfirmasi diterima</span>
+											@elseif($item->status==2)
+											<span class="label label-info">Pembayaran diterima</span>
+											@elseif($item->status==3)
+											<span class="label label-success">Terkirim</span>
+											@elseif($item->status==4)
+											<span class="label label-default">Batal</span>
+											@endif
+										</td>
+										<td>{{ price($item->total)}}</td>
+										<td>
+										@if($item->status == 0)
+											<a href="{{url('konfirmasiorder/'.$item->id)}}" class="button-1 custom-font-1 trans-1">
+												<span style="font-size: 12px">Konfirmasi</span>
+											</a>
+										@endif
+										</td>
+									</tr>
+								@endforeach
+								</tbody>
+							</table>
 						</div>
-
-						@foreach (list_order(10) as $item)
-	
-						<div class="row">
-							<div class="date"><a href="#">{{prefixOrder()}}{{$item->kodeOrder}}</a></div>
-							<div class="date">{{date("d M Y", strtotime($item->tanggalOrder))}}</div>
-							<div class="payment">
-								@if($item->status==0)
-								<span class="label label-warning">Pending</span>
-								@elseif($item->status==1)
-								<span class="label label-success">Konfirmasi diterima</span>
-								@elseif($item->status==2)
-								<span class="label label-green">Pembayaran diterima</span>
-								@elseif($item->status==3)
-								<span class="label label-info">Terkirim</span>
-								@elseif($item->status==4)
-								<span class="label label-default">Batal</span>
-								@endif
-							</div>
-							<div class="order">{{ price($item->total)}}</div>
-							<div class="total">
-							@if($item->status == 0)
-								<a href="{{url('konfirmasiorder/'.$item->id)}}" class="button-1 custom-font-1 trans-1">
-									<span style="font-size: 12px">Konfirmasi</span>
-								</a>
-							@endif
-							</div>
-							
-						</div>
-						@endforeach
 						<div class="pages custom-font-1">
-							{{list_order(10)->links()}}
+							{{list_order()->links()}}
 						</div>
 					@else
 						<center><h4>Daftar order anda masih kosong.</h4></center>
@@ -65,9 +70,7 @@
 					</div>
 
 					<div class="clear"></div>
-
-				<!-- END .single-full-width -->
 				</div>
-
+				<!-- END .single-full-width -->
 				<div class="clear"></div>
 				<br><br><br>

@@ -16,12 +16,16 @@
 
     <div class="items-wrapper">
         <div class="items">
-        @foreach(list_product(8,@$category) as $key=>$myproduk)
+        @foreach(home_product() as $myproduk)
             <div class="item-block-1">
                 <div class="image-wrapper-3" style="position: relative;">
-                    {{is_terlaris($myproduk)}}
-                    {{is_produkbaru($myproduk)}}
+                    @if(is_outstok($myproduk))
                     {{is_outstok($myproduk)}}
+                    @elseif(is_terlaris($myproduk))
+                    {{is_terlaris($myproduk)}}
+                    @elseif(is_produkbaru($myproduk))
+                    {{is_produkbaru($myproduk)}}
+                    @endif
                     <div class="image">
                         <div class="image-overlay-1 trans-1">
                             <table>
@@ -33,7 +37,7 @@
                             </table>
                         </div>
                         <a href="{{product_url($myproduk)}}">
-                            {{HTML::image(product_image_url($myproduk->gambar1,'medium'),'produk',array('width'=>'214px','style'=>'left: 50%; margin-left: -107px; top: 50%; margin-top: -106px;'))}}
+                            {{HTML::image(product_image_url($myproduk->gambar1,'medium'),'produk')}}
                         </a>
                     </div>
                 </div>
@@ -45,9 +49,8 @@
     </div>
 
     <div class="clear"></div>
-
-<!-- END .featured-items -->
 </div>
+<!-- END .featured-items -->
 <!-- BEGIN .homepage-about -->
 <div class="homepage-about">
     <div class="main-title">
@@ -57,20 +60,18 @@
     <p class="caps">
         @foreach(vertical_banner() as $banner)
         <a href="{{url($banner->url)}}">
-            <img src="{{banner_image_url($banner->gambar)}}"/>
+            <img src="{{banner_image_url($banner->gambar)}}" />
         </a>
         @endforeach
     </p>
-
-<!-- END .homepage-about -->
 </div>
+<!-- END .homepage-about -->
 
 <!-- BEGIN .homepage-latest-news -->
 <div class="homepage-latest-news">
-
     <div class="main-title">
-        <p class="custom-font-1">Latest news</p>
-        <a href="{{url('blog')}}" class="view">view all blog posts</a>
+        <p class="custom-font-1">Artikel terbaru</p>
+        <a href="{{url('blog')}}" class="view">lihat artikel lainnya</a>
     </div>
 
     <div class="items">
@@ -79,20 +80,20 @@
             <div class="text">
                 <h3><a href="{{blog_url($blog)}}" class="custom-font-1">{{$blog->judul}}</a></h3>
                 <div class="title-legend">
-                    <a href="{{blog_url($blog)}}" class="date">{{waktu($blog->updated_at)}}</a>
+                    <a href="{{blog_url($blog)}}" class="date">{{waktuTgl($blog->updated_at)}}</a>
                 </div>
-                <p>{{short_description($blog->isi,130)}}. <a href="{{blog_url($blog)}}" class="more-link">Read more</a></p>
+                <p>{{short_description($blog->isi,130)}}. <a href="{{blog_url($blog)}}" class="more-link">Baca selengkapnya</a></p>
             </div>
         </div>
         @endforeach 
     </div>
-<!-- END .homepage-latest-news -->
 </div>
+<!-- END .homepage-latest-news -->
 
 <!-- BEGIN .homepage-best-sellers -->
 <div class="homepage-best-sellers">
     <div class="main-title">
-        <p class="custom-font-1">Best sellers</p>
+        <p class="custom-font-1">Produk terlaris</p>
     </div>
 
     <div class="items">
@@ -115,13 +116,13 @@
             <div class="text">
                 <p class="nr custom-font-1">{{$key+1}}</p>
                 <small><b class="custom-font-1" style="font-size: 12px;">{{price($best->hargaJual)}}</b></small>
-                <p class="more-link-wrapper"><a href="{{product_url($best)}}" class="more-link">Details</a></p>
+                <p class="more-link-wrapper"><a href="{{product_url($best)}}" class="more-link">Detail</a></p>
             </div>
         </div>
         @endforeach
     </div>
-<!-- END .homepage-best-sellers -->
 </div>
+<!-- END .homepage-best-sellers -->
 
 <div class="clear"></div>
 <br><br><br><br>

@@ -1,5 +1,5 @@
 <div class="main-title">
-	<p class="custom-font-1">Layanan Pelanggan</p>
+	<!-- <p class="custom-font-1">Layanan Pelanggan</p> -->
 </div>
 	
 <!-- BEGIN .single-full-width -->
@@ -15,8 +15,8 @@
 	{{$service->privacy}}
 
 	<div class="clear"></div>
-<!-- END .single-full-width -->
 </div>
+<!-- END .single-full-width -->
 
 <div class="clear"></div>
 <br><br><br>
