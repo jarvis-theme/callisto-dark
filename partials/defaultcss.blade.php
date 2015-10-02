@@ -5,7 +5,6 @@
     {{generate_theme_css('callisto-dark/assets/css/dark.css')}} 
     {{generate_theme_css('callisto-dark/assets/css/jquery.fancybox.css')}}  
     {{generate_theme_css('callisto-dark/assets/css/bootstrap.min.css')}} 
-    {{generate_theme_css('jarvisgames/assets/css/font-awesome.min.css')}} 
 
     <!--[if lt IE 9]><link rel="stylesheet" href="css/ie.css" type="text/css" type="text/css" /><![endif]-->
     <!-- <link rel="stylesheet" href="css/dark.css" type="text/css" /> -->
