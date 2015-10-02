@@ -14,7 +14,7 @@
 <meta name="DC.Description" content="{{$description}}">
 <meta name="theme_path" content="{{theme_path()}}">
 <meta property="og:url"           content="{{URL::full()}}" />
-<meta property="og:type"          content="product" />
+<meta property="og:type"          content="website" />
 <meta property="og:title"         content="{{$title}}" />
 <meta property="og:description"   content="{{$description}}" />
 <meta property="og:image"         content="{{@$img!='' ? product_image_url($img):''}}" />

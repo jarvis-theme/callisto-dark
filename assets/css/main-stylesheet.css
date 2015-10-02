@@ -422,7 +422,7 @@ div.selector:hover { opacity: 1; }
 
 	.main-item-wrapper .image-wrapper-3 { background-color: #fff; border: rgba(0, 0, 0, 0.15) 1px solid; padding: 2px; margin: 0 0 25px 0; width: 470px; height: 470px; float: left; }
 		.main-item-wrapper .image-wrapper-3 .image { width: 470px; height: 470px;  overflow: hidden; position: relative; }
-			.main-item-wrapper .image-wrapper-3 .image img { position: absolute; z-index: 1; padding: 0; border: none; }
+			.main-item-wrapper .image-wrapper-3 .image img { position: absolute; z-index: 1; padding: 0; border: none; max-width: 100%; }
 
 	.main-item-wrapper .image-wrapper-4 { background-color: #fff; border: rgba(0, 0, 0, 0.15) 1px solid; padding: 2px; margin: 0 7px; width: 60px; height: 60px; opacity: 0.6 }
 	.main-item-wrapper .image-wrapper-4:hover { opacity: 1; }
@@ -1104,6 +1104,7 @@ div.selector:hover { opacity: 1; }
 	.main-content-wrapper {padding: 0px 10px 750px;width: 300px; margin-bottom: 50%;}
 	.promo{ margin-bottom: 30%; }
 	.table-responsive { border: transparent !important;}
+	.sosmed{ text-align: center !important; float: right; margin-top: 10px; }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 959px){
@@ -1152,7 +1153,7 @@ div.selector:hover { opacity: 1; }
 .fb_reset {display: inline-block;}
 .fb-share-button {top: -5px;margin-left: 5px;}
 .fb-comments span{color: #fff;}
-.sosmed{ float: right; text-align: center; width: 100%; }
+.sosmed{ text-align: right; width: 100%; }
 .description .item{min-height: 200px;}
 #fb{ color: #3A5795; }
 #tw{ color: #1DC9E2; }

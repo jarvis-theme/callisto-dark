@@ -23,8 +23,10 @@
         <div class="category">
             <select onchange="if(this.options[this.selectedIndex].value != ''){window.top.location.href=this.options[this.selectedIndex].value}">
                 <option>Semua produk</option>
-                @foreach($kategori as $value)
-                <option value="{{category_url($value)}}">{{$value->nama}}</option>
+                @foreach(list_category() as $value)
+                    @if($value->parent == 0)
+                    <option value="{{category_url($value)}}">{{$value->nama}}</option>
+                    @endif
                 @endforeach
             </select>
         </div>
@@ -67,7 +69,7 @@
                             </table>
                         </div>
                         <a href="{{product_url($myproduk)}}">
-                            {{HTML::image(product_image_url($myproduk->gambar1,'medium'),$myproduk->nama)}}
+                            {{HTML::image(product_image_url($myproduk->gambar1,'large'),$myproduk->nama)}}
                         </a>
                     </div>
                 </div>

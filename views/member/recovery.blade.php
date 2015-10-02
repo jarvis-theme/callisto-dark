@@ -1,80 +1,39 @@
-    <div class="container">
-        <!-- Login Section -->
-        <section class="login">
-            <div class="row standard">
-                <header class="span12 prime">
-                    <h3>Akun</h3>
-                </header>
-            </div>              
-
-            <div class="wrap">
-                <div class="row-fluid">
-                    <div class="span6">
-                        <ul class="nav nav-tabs" id="myTab">
-                            <li><a href="#login"><i class="icon-lock"></i> Login</a></li>
-                            <li class="active"><a href="#forgot"><i class="icon-help"></i> Lupa Password</a></li>
-                        </ul>
-
-                        <div class="tab-content">
-                            <!-- Login -->
-                            <div class="tab-pane" id="login">
-                                <form class="form-horizontal" action="{{url('member/login')}}" method="post">
-                                    <div class="control-group">
-                                        <label class="control-label" for="inputEmail"> Email</label>
-                                        <div class="controls">
-                                            <input type="email" name="email" id="inputEmail" placeholder="Email" required>
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <label class="control-label" for="inputPassword">Password</label>
-                                        <div class="controls">
-                                            <input type="password" name="password" id="inputPassword" placeholder="Password" required>
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <div class="controls">
-                                            <button type="submit" class="btn theme">Login</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-
-                            <!-- Register -->
-                            <div class="tab-pane active" id="forgot">
-                                {{Form::open(array('url' => 'member/recovery/'.$id.'/'.$code, 'class' => 'form-horizontal'))}}
-                                    <div class="control-group">
-                                        <label class="control-label" for="inputPassword">Password Baru</label>
-                                        <div class="controls">
-                                            <input type="password" name="password" id="inputPassword" placeholder="password baru" required>
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <label style="width: 110px;" class="control-label" for="inputPassword">Ulangi Password</label>
-                                        <div class="controls">
-                                            <input type="password" name="password_confirmation" id="inputPassword" placeholder="password baru" required>
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <div class="controls">
-                                            <button type="submit" class="btn theme">Reset Password</button>
-                                        </div>
-                                    </div>
-                                {{Form::close()}}
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="span6">
-                        <p>Pelanggan Baru</p>
-                        <hr>
-                        <p>Register and save time!
-                            <ul class="ul">
-                                <li>Fast and easy check out</li>
-                                <li>Easy access to your order history and status</li>
-                            </ul>
-                        <a href="{{url('member/create')}}" class="theme">Create an Account →</a></p>
-                    </div>
-                </div>
-            </div>
-        </section>
+<div class="container">
+    <!-- Login Section -->
+    <div class="main-title">
+        <p class="custom-font-1">Reset Password</p>
     </div>
+
+    <!-- BEGIN .single-full-width -->
+    <div class="single-full-width customer">
+        <div class="login">
+            {{Form::open(array('url' => 'member/recovery/'.$id.'/'.$code, 'class' => 'form-horizontal'))}}
+                <p>
+                    <label class="control-label" for="inputPassword">Password Baru</label>
+                    <input type="password" name="password" class="input-text-1" id="inputPassword" required>
+                </p>
+                <p>
+                    <label class="control-label" for="inputPassword">Ulangi Password</label>
+                    <input type="password" name="password_confirmation" class="input-text-1" id="inputPassword" required>
+                </p>
+
+                <p class="sign-in">
+                    <label></label>
+                    <button type="submit" class="button-1 custom-font-1 trans-1"><span>Reset Password</span></button>
+                    <b>atau&nbsp;<a href="{{URL::to('member')}}">Login</a></b>
+                </p>
+            {{Form::close()}}
+        </div>
+        
+        <div class="guest-login">
+            <div class="main-title">
+                <p class="custom-font-1">Pelanggan Baru</p>
+            </div>
+            <p>Nikmati kemudahan dalam berbelanja saat anda terdaftar sebagai member.</p>
+            <a href="{{URL::to('member/create')}}" class="button-1 custom-font-1 trans-1"><span>Daftar sebagai member</span></a>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+    <!-- END .single-full-width -->
+</div>
