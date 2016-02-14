@@ -6,29 +6,26 @@ require.config({
     waitSeconds : 60,
 	shim: {
 		"bootstrap"	: {
-			deps : ['jquery'],
+			deps : ['jquery']
 		},
 		"fancybox" : {
-			deps : ['jquery'],
+			deps : ['jquery']
 		},
 		'jq_cycle' : {
-			deps : ['jquery'],
+			deps : ['jquery']
 		},
 		'jq_ui' : {
-			deps : ['jquery'],
+			deps : ['jquery']
 		},
 		'jq_uniform' : {
-			deps : ['jquery'],
+			deps : ['jquery']
 		},
 		"js_global" : {
-			deps : ['jquery'],
+			deps : ['jquery']
 		},
 		"noty" : {
-			deps : ['jquery'],
-		},
-		"noty_util" : {
-			deps : ['jquery','noty'],
-		},
+			deps : ['jquery']
+		}
 	},
 
 	paths: {
@@ -37,7 +34,6 @@ require.config({
 		cart			: 'js/shop_cart',
 		jq_ui			: 'js/jquery-ui',
 		noty			: 'js/jquery.noty',
-		noty_util		: 'js/utils/noty',
 		bootstrap 		: dirTema+'/assets/js/lib/bootstrap.min',
 		fancybox 		: dirTema+'/assets/js/lib/jquery.fancybox.pack',
 		jq_cycle		: dirTema+'/assets/js/lib/jquery.cycle.all',

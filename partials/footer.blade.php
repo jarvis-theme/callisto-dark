@@ -2,16 +2,16 @@
 <div class="main-footer-wrapper">
 	<a href="#" class="back-to-the-top">Kembali ke atas</a>
 	<div class="main-footer">
-		@foreach($tautan as $key=>$group)	
+		@foreach(all_menu() as $key=>$group)	
             @if($key==0 || $key>2)
 
             @else
-	            <div class="col-xs-11 col-sm-2">
+	            <div class="col-xs-11 col-sm-2 col-md-2">
 		            <div class="main-title">
 						<p class="custom-font-1">{{$group->nama}}</p>
 					</div>
-					<ul style="margin-left: 10px;">
-					@foreach($quickLink as $key=>$link)
+					<ul class="bottom-menu">
+					@foreach($group->link as $key=>$link)
 			            @if($group->id==$link->tautanId)
 						<li>
 							<a href="{{menu_url($link)}}">{{$link->nama}}</a>
@@ -24,18 +24,18 @@
 			@endif	
 		@endforeach
 
-		<div class="col-xs-11 col-sm-4">
+		<div class="col-xs-11 col-sm-3 col-md-4">
 			<div class="main-title">
-				<p class="custom-font-1" style="font-size: 24px;">Hubungi Kami</p>
+				<p class="custom-font-1 contact">Hubungi Kami</p>
 			</div>
 			<p>
 			@if($kontak->alamat!='')
 				<p><b>Alamat: </b><br>{{$kontak->alamat}}</p><br>
-				<p><b>Telepon: </b><br>@if($kontak->telepon != ''){{$kontak->telepon}} @else - @endif</p><br>
+				<p><b>Telepon: </b><br>{{ $kontak->telepon != '' ? $kontak->telepon : '-' }}</p><br>
 				@if($kontak->bb != '')
                 <p><b>PIN BB: </b><br>{{$kontak->bb}}</p><br>
                 @endif
-				<b>Email: </b><br><a style="color:white" href="mailto:{{$kontak->email}}">{{$kontak->email}}</a>
+				<b>Email: </b><br><a class="white" href="mailto:{{$kontak->email}}">{{$kontak->email}}</a>
 				<br><br>
 			@else
 				<p></p>
@@ -95,21 +95,27 @@
 			<br><br>
 		</div>
 
-		<div class="col-xs-11 col-sm-2">
+		<div class="col-xs-11 col-sm-2 col-md-2">
 			<div class="main-title">
 				<p class="custom-font-1">Pembayaran</p>
 			</div>
 			<p class="social">
 				@if(count( list_banks() ) > 0)
 					@foreach(list_banks() as $value)
-					<a>{{HTML::image(bank_logo($value))}}</a><br>
+					<a>{{HTML::image(bank_logo($value), $value->bankdefault->nama, array('title'=>$value->bankdefault->nama))}}</a><br>
 					@endforeach
 				@endif
 				@if(count(list_payments()) > 0)
 					@foreach(list_payments() as $pay)
+						@if($pay->nama == 'paypal' && $pay->aktif == 1)
+		                <img src="{{url('img/bank/paypal.png')}}" alt="Paypal" title="Paypal" />
+		                @endif
 						@if($pay->nama == 'ipaymu' && $pay->aktif == 1)
-						<img src="{{url('img/bank/ipaymu.jpg')}}" alt="ipaymu" />
+						<img src="{{url('img/bank/ipaymu.jpg')}}" alt="ipaymu" title="Ipaymu" />
 						@endif
+						@if($pay->nama == 'bitcoin' && $pay->aktif == 1)
+		                <img src="{{url('img/bitcoin.png')}}" alt="Bitcoin" title="Bitcoin" />
+		                @endif
 					@endforeach
 				@endif
 				@if(count(list_dokus()) > 0 && list_dokus()->status == 1)
@@ -118,7 +124,7 @@
 			</p>
 		</div>
 
-		<div class="copyright" style="padding: 39px 0 20px 0; margin:0">
+		<div class="copyright">
 			<table>
 				<tr>
 					<td>
@@ -128,5 +134,5 @@
 			</table>
 		</div>
 	</div>
-<!-- END .main-footer-wrapper -->
 </div>
+<!-- END .main-footer-wrapper -->

@@ -4,10 +4,10 @@
 					<div class="post-wrapper">
 						<h2 class="post-title custom-font-1"><a href="#">{{$detailblog->judul}}</a></h2>
 						<div class="title-legend">
-							<a href="#" class="date">{{waktuTgl($detailblog->updated_at)}}</a>
+							<a href="#" class="date">{{waktuTgl($detailblog->created_at)}}</a>
 							<div class="sosmed">
-					            {{sosialShare(url(product_url($detailblog)))}}
-					        </div>
+								{{sosialShare(url(product_url($detailblog)))}}
+							</div>
 						</div>
 
 						{{$detailblog->isi}}
@@ -31,7 +31,6 @@
 
 					<div class="comments-wrapper">
 						{{$fbscript}}
-						{{--$fbcomment--}}
 						{{fbcommentbox(blog_url($detailblog), '100%', 5, 'light')}}
 					</div>
 				</div>
@@ -42,11 +41,11 @@
 					<!-- BEGIN .shop-by-category -->
 					<div class="shop-by-category sidebar-item">
 						<div class="main-title">
-							<p class="custom-font-1">Blog by category</p>
+							<p class="custom-font-1">Cari Artikel Kategori</p>
 						</div>
 						<form action="#">
 							<select onchange="if(this.options[this.selectedIndex].value != ''){window.top.location.href=this.options[this.selectedIndex].value}">
-								<option>select category</option>
+								<option value="">select category</option>
 								@foreach(list_blog_category() as $key=>$value)
 								<option value="{{blog_category_url($value)}}">{{$value->nama}}</option>
 								@endforeach
@@ -60,11 +59,11 @@
 						<div class="main-title">
 							<p class="custom-font-1">Post tags</p>
 						</div>
-						{{ getTags('<span class="s-tag" style="text-decoration: underline;"></span>',$tag)}}	
+						{{ getTags('<span class="s-tag"></span>',$tag)}}	
 						<div class="clear"></div>
 					</div>
 					<!-- END .post-tags -->
-
+					@if(recentBlog()->count() > 0)
 					<!-- BEGIN .recent-activity -->
 					<div class="recent-activity sidebar-item">
 						<div class="main-title">
@@ -76,15 +75,16 @@
 							<div class="text">
 								<h3><a href="{{blog_url($recent)}}" class="custom-font-1">{{$recent->judul}}</a></h3>
 								<div class="title-legend">
-									<a href="#" class="date">{{waktuTgl($recent->updated_at)}}</a>
+									<a href="#" class="date">{{waktuTgl($recent->created_at)}}</a>
 								</div>
 								<a href="{{blog_url($recent)}}" class="more-link">Baca selengkapnya</a>
 							</div>
 						</div>
 						@endforeach
 						<br><br><br>
-					</div>				
+					</div>
 					<!-- END .recent-activity -->
+					@endif
 				</div>
 				<!-- END .main-sidebar-wrapper -->
 				<div class="clear"></div>

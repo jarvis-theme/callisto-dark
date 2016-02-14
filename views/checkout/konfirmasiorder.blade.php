@@ -1,6 +1,6 @@
 <div class="single-full-width customer customer-order">
 	<div class="main-title">
-		<p class="custom-font-1"><a href="#" class="active" style="color: #FEEBB7 !important;">Konfirmasi Order</a></p>
+		<p class="custom-font-1"><a href="#" class="active confirm-title">Konfirmasi Order</a></p>
 		<a href="#" class="continue">Kembali</a>
 	</div>
 	
@@ -56,28 +56,64 @@
 	</div>
 	<br>
 	<div class="contact-form">
+        @if($order->jenisPembayaran == 1 && $order->status == 0)
 		{{Form::open(array('url'=> 'konfirmasiorder/'.$order->id, 'method'=>'put', 'class'=> 'form-horizontal'))}}
-			<p><label>Nama Pengirim:</label><input type="text" name='nama' value='{{Input::old("nama")}}' required class="input-text-1"></p>
+			<p><label>Nama Pengirim:</label><input type="text" name="nama" value="{{Input::old('nama')}}" class="input-text-1" required></p>
 
-            <p><label>No Rekening:</label><input type="text" name='noRekPengirim' value='{{Input::old("noRekPengirim")}}' required class="input-text-1"></p>
+			<p><label>No Rekening:</label><input type="text" name="noRekPengirim" value="{{Input::old('noRekPengirim')}}" class="input-text-1" required></p>
 
-            <p>
-            	<label>Rekening Tujuan:</label>
-            	<select name='bank'>
-					<option value=''>-- Pilih Bank Tujuan --</option>
+			<p>
+				<label>Rekening Tujuan:</label>
+				<select name="bank">
+					<option value="">-- Pilih Bank Tujuan --</option>
 					@foreach (list_banks() as $bank)
 					<option value="{{$bank->id}}">{{$bank->bankdefault->nama}} - {{$bank->noRekening}} - A/n {{$bank->atasNama}}</option>
 					@endforeach
 				</select>
-            </p>	
+			</p>
 
-            <p><label>Jumlah:</label><input type="text" name='jumlah' name='email' value='{{Input::old("noRekPengirim")}}' required class="input-text-1"></p>
+			<p><label>Jumlah:</label><input type="text" name="jumlah" name="email" value="{{Input::old('noRekPengirim')}}" class="input-text-1" required></p>
 
-            <p class="sign-in">
+			<p class="sign-in">
 				<label></label>
 				<button type="submit" class="button-1 custom-font-1 trans-1"><span>Konfirmasi Order</span></button>
 			</p>
 		{{Form::close()}}
+		@endif
+
+		@if($paymentinfo!=null)
+        <h3><center>Paypal Payment Details</center></h3><br>
+        <hr>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <tr><td>Payment Status</td><td>:</td><td>{{$paymentinfo['payment_status']}}</td></tr>
+                <tr><td>Payment Date</td><td>:</td><td>{{$paymentinfo['payment_date']}}</td></tr>
+                <tr><td>Address Name</td><td>:</td><td>{{$paymentinfo['address_name']}}</td></tr>
+                <tr><td>Payer Email</td><td>:</td><td>{{$paymentinfo['payer_email']}}</td></tr>
+                <tr><td>Item Name</td><td>:</td><td>{{$paymentinfo['item_name1']}}</td></tr>
+                <tr><td>Receiver Email</td><td>:</td><td>{{$paymentinfo['receiver_email']}}</td></tr>
+                <tr><td>Total Payment</td><td>:</td><td>{{$paymentinfo['payment_gross']}} {{$paymentinfo['mc_currency']}}</td></tr>
+            </table>
+        </div>
+        <p>Thanks you for your order.</p><br>
+        @endif 
+  
+        @if($order->jenisPembayaran==2)
+            <h3><center>Konfirmasi Pemabayaran Via Paypal</center></h3><br>
+            <p>Silakan melakukan pembayaran dengan paypal Anda secara online via paypal payment gateway. Transaksi ini berlaku jika pembayaran dilakukan sebelum {{$expired}}. Klik tombol "Bayar Dengan Paypal" di bawah untuk melanjutkan proses pembayaran.</p>
+            {{$paypalbutton}}
+            <br>
+        @elseif($order->jenisPembayaran==6)
+            @if($order->status == 0)
+            <h3><center>Konfirmasi Pembayaran Via Bitcoin</center></h3><br>
+            <p>Silahkan melakukan pembayaran dengan bitcoin Anda secara online via bitcoin payment gateway. Transaksi ini berlaku jika pembayaran dilakukan sebelum <b>{{$expired_bitcoin}}</b>. Klik tombol "Pay with Bitcoin" di bawah untuk melanjutkan proses pembayaran.</p>
+            {{$bitcoinbutton}}
+            <br>
+            @else
+            <h3><center>Konfirmasi Pembayaran Via Bitcoin</center></h3><br>
+            <p><center><b>Batas waktu pembayaran bicoin anda telah habis.</b></center></p>
+            @endif
+		@endif
 	</div>
 </div>
 <div class="clear"></div>

@@ -10,22 +10,22 @@
 				<li>{{HTML::link('member', user()->nama)}}</li>
 				<li>{{HTML::link('logout', 'Logout')}}</li>
 			@endif			
-			<!-- <li class="checkout"><a href="customer-checkout-step-1.html">Checkout</a></li> -->
-			<li id='shoppingcartplace' class="cart">{{$ShoppingCart}}</li>
+			<!-- <li class="checkout"><a href="{{url('checkout')}}">Checkout</a></li> -->
+			<li id="shoppingcartplace" class="cart">{{shopping_cart()}}</li>
 		</ul>
 	</div>
-<!-- END .main-dock-wrapper -->
 </div>
+<!-- END .main-dock-wrapper -->
 
 <!-- BEGIN .main-header -->
 <div class="main-header">
 	<div class="logo">
-		@if(@getimagesize(url(logo_image_url())))
+		@if( logo_image_url() )
         <a href="{{URL::to('home')}}">
-            <img src="{{url(logo_image_url())}}" style="max-height:120px" /></a>
+            <img src="{{url(logo_image_url())}}" alt="Logo {{Theme::place('title')}}" /></a>
 		</a>
         @else
-        <a href="{{url('home')}}" style="color:#5EC80C"><h1 style="font-family: Viga; font-size: 35px;">{{ shortText(Theme::place('title'),26) }}</h1></a>
+        <a href="{{url('home')}}" class="logotext"><h1 class="logo-title">{{ shortText(Theme::place('title'),26) }}</h1></a>
         @endif
 		<!-- <a href="#" class="logo-icon custom-font-1"><span>Soulage</span></a> -->
 		<!-- <a href="#" class="logo-blank custom-font-1"><span>Mante&nbsp;and&nbsp;sons</span></a> -->

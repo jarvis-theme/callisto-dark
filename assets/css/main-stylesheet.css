@@ -190,7 +190,7 @@ div.selector:hover { opacity: 1; }
 	.pages ul li { color: #868686; float: left; margin: 0 4px 0 0; cursor: pointer; list-style-type: none;}
 		.pages div a span { float: left; padding: 6px 8px; }
 		.pages ul li span { float: left; padding: 6px 8px; }
-	.pages .previous { background: url(../images/arrow-3.png) 0 6px no-repeat; color: #1e1e1e; float: right; padding: 0 0 0 12px; margin: 6px 0 0 0; }
+	.pages .previous { background: url(../images/arrow-3.png) 0 6px no-repeat; color: #1e1e1e; padding: 0 0 0 12px; margin: 6px 0 0 0; }
 	.pages .previous:hover { background-position: 0 -186px; }
 	.pages .next { background: url(../images/arrow-4.png) right 6px no-repeat; color: #1e1e1e; float: right; padding: 0 12px 0 25px; margin: 6px 0 0 0; }
 	.pages .next:hover { background-position: right -186px; }
@@ -213,7 +213,7 @@ div.selector:hover { opacity: 1; }
 .blockquote-1 { padding: 12px 0 27px 50px; }
 	.blockquote-1 blockquote { font-size: 34px; line-height: 38px; color: #1e1e1e; background: url(../images/ico-quotes-1.png) 0 7px no-repeat; margin: 0; padding: 0 0 0 77px; }
 
-.s-tag { margin: 0 8px 8px 0; color: #1e1e1e; background-color: rgba(0, 0, 0, 0.1); border: #fff 1px solid; border-radius: 4px; float: left; }
+.s-tag { margin: 0 8px 8px 0; color: #1e1e1e; background-color: rgba(0, 0, 0, 0.1); border: #fff 1px solid; border-radius: 4px; float: left; text-decoration: underline; }
 .s-tag:hover { color: #1e1e1e; background-color: rgba(0, 0, 0, 0.05); }
 		.s-tag span { padding: 2px 8px; border: rgba(0, 0, 0, 0.15) 1px solid; border-radius: 4px; float: left; font-size: 11px; font-weight: bold; }
 .s-tag-active { color: #fff; background-color: rgba(0, 0, 0, 0.6); }
@@ -311,7 +311,7 @@ div.selector:hover { opacity: 1; }
 				.homepage-slider .item .title p a:hover { color: #ff0a8f; background-position: right -188px; }
 			.homepage-slider .item .title .read-more { color: #da0a7b; font-weight: bold; background: url(../images/arrow-2.png) right 6px no-repeat; padding: 0 10px 0 0; position: absolute; right: 35px; bottom: 30px; }
 			.homepage-slider .item .title .read-more:hover { color: #ff0a8f; background-position: right -186px; }
-		#hompage-slider_content { width: 960px; height: 330px; margin-left: -10px; }
+		#hompage-slider_content { width: 960px; height: 410px; margin-left: -10px; }
 
 	.homepage-slider .navigation { padding: 17px 0 30px 0; }
 		.homepage-slider .navigation table { margin: 0 auto; }
@@ -743,7 +743,7 @@ div.selector:hover { opacity: 1; }
 			.main-footer .about-us .social b { margin: 0 7px 0 0; }
 			.main-footer .about-us .social img { vertical-align: middle; margin: 0 2px; }
 
-	.main-footer .copyright { float: left; width: 100%; margin: 20px 0 0 0; text-align: center; background: url(../images/border-7.png) top center no-repeat; padding: 39px 0 0 0; font-size: 11px; font-weight: bold; }
+	.main-footer .copyright { float: left; width: 100%; margin: 0; text-align: center; background: url(../images/border-7.png) top center no-repeat; padding: 39px 0 20px 0; font-size: 11px; font-weight: bold; }
 		.main-footer .copyright table { margin: 0 auto; }
 		.main-footer .copyright a { color: #fff; }
 		.main-footer .copyright a:hover { color: #ff0a8f; }
@@ -1106,26 +1106,6 @@ div.selector:hover { opacity: 1; }
 	.table-responsive { border: transparent !important;}
 	.sosmed{ text-align: center !important; float: right; margin-top: 10px; }
 }
-
-@media only screen and (min-width: 768px) and (max-width: 959px){
-	.customer .order-history .payment { float: left; width: 82px; }
-	.customer .order-history .order { float: left; width: 85px; }
-}
-@media only screen and (max-width: 360px){
-	.single-full-width { margin-bottom: 100px; padding-bottom: 100px; }
-	.guest-login { width: 100%; }
-}
-@media only screen and (max-width: 800px){
-	.contact-form div.text { 
-		background: transparent url("../images/border-9.png") repeat-x scroll left bottom; 
-		margin-bottom: 30px; 
-		padding-bottom: 10px;
-	}
-	#table-order {margin-top: 10px;width: 100%;}
-}
-@media only screen and (max-width: 979px){
-	#table-order {padding: 0;}
-}
 .breadcurm li{
 	float:left;
 }
@@ -1161,10 +1141,78 @@ div.selector:hover { opacity: 1; }
 #pt{ color: #BD2126; }
 #tl{ color: #34465D; }
 #ig{ color: #E7DDD3; }
-#ig-circle{ color: #7C5641; }
-.breadcurm li{ float:left; list-style: none; }
-.breadcurm li a{ font-size: 16px; margin-right: 12px; }
-.main-title p a > span { top: 0; color: #FEEBB7; }
-.main-title p > span:last-child {display: none;}
-.detail-price{ color: #5ED400; font-weight: bold; }
-.slides{ padding: 1px 0 30px; height: auto !important; }
+#ig-circle{ color: #7C5641; }.white{color:#fff;}
+.breadcurm li{ float:left; list-style: none; }.descpro{text-align:justify;width:100%}
+.breadcurm li a{ font-size: 16px; margin-right: 12px; }.password{width:200px}
+.main-title p a > span { top: 0; color: #FEEBB7; }.label-important{background-color: #D9534F;}
+.main-title p > span:last-child {display: none;}.confirm-order{min-height: 250px}
+.detail-price{ color: #5ED400; font-weight: bold; }.logo-title{font-family: Viga; font-size: 35px;}
+.slides{ padding: 1px 0 30px; height: auto !important; }.logotext{color:#5EC80C}
+.bottom-menu{margin-left: 10px}.contact{font-size: 24px}.white{color:white}.logo a img{max-height:120px}
+#hompage-slider_content .item img{width:944px}.confirm-title{color: #FEEBB7 !important;}
+.input-code{width: 200px;height: 35px;float: left;margin-right: 10px;}.imagepro{position: relative;}
+.btn-code{padding: 5px 15px; background: none repeat scroll 0% 0% transparent}.bbm{width: 30px;}
+.maps{ padding: 0px; margin-bottom: 10px; }.main-banner{text-align: center; padding: 1px 0 30px; height: auto;}
+.notfound{font-style: italic;}.best{width: 94px; height: 94px}.bestprice{font-size: 12px;}
+.main-footer img{border-radius: 5px}.pricepro{width: auto}.desc{margin:0}
+.submenu{margin-left: 10px}.submenu2{margin-left: 20px}.rules{font-size: 16px}
+.result{text-align: center; border: 0;}.bestpro{width:94px; height:94px;}
+.breadcrumbpro{font-size: large;}.breadcrumbpro a{color: #eee !important}.breadcrumbpro a.active{color: #a4a4a4 !important}
+.btn-testi{background: none !important; padding: 5px 15px !important;}#testi{width: 97%}#testi-message{width: 95%}
+.promo .items img, .caps img{max-width: 100%}
+.powerup .cekresi hr, .border{border-color: #595656} .powerup .cekresi h5{margin: 0 auto; width: 45%;}
+.powerup .cekresi form{width: 50%;margin: 0px auto;}
+.powerup .cekresi form input[type="submit"]{
+	background-color: rgba(0, 0, 0, 0.85);
+	box-shadow: rgba(255, 255, 255, 0.2) 0 1px 0;
+	border-radius: 3px;
+	font-size: 14px; color: #fff;
+	text-shadow: rgba(0, 0, 0, 0.3) 0 1px 0;
+	text-transform: uppercase;
+	font-weight: bold;
+	padding: 5px;
+	border-color: transparent;
+	margin-top: 5px;
+}
+.powerup .cekresi form input[type="submit"]:hover{opacity: 0.7}
+
+@media only screen and (max-width: 979px){
+	#table-order {padding: 0;}
+}
+@media screen and (max-width: 837px){
+	.text h5{font-size: 13px}
+	.item-block-1 > p > b.custom-font-1{font-size: 15px}
+}
+@media only screen and (max-width: 800px){
+	.contact-form div.text { 
+		background: transparent url("../images/border-9.png") repeat-x scroll left bottom; 
+		margin-bottom: 30px; 
+		padding-bottom: 10px;
+	}
+	#table-order {margin-top: 10px;width: 100%;}
+}
+@media only screen and (min-width: 768px) and (max-width: 959px){
+	.customer .order-history .payment { float: left; width: 82px; }
+	.customer .order-history .order { float: left; width: 85px; }
+}
+@media screen and (max-width: 768px){
+	.blog-list .item .title a, .main-title p.custom-font-1{font-size: 17px}
+	.sidebar-best-sellers .item p b{font-size: 12px}
+}
+@media screen and (max-width: 767px){
+	.read{display: none;}
+	.powerup .cekresi h5, .powerup .cekresi form{width: 100%}
+	.powerup .cekresi h5{font-size: 14px}
+	.powerup .cekresi form input[type="text"], .powerup .cekresi form input[type="submit"]{font-size: 12px}
+}
+@media screen and (max-width: 480px){
+	.item-block-2 p b.custom-font-1{font-size: 15px}
+	.cekresi{margin-bottom: 50px;padding-bottom: 20px;}
+	.single-full-width { margin-bottom: 100px; padding-bottom: 100px; }
+}
+@media only screen and (max-width: 360px){
+	.guest-login { width: 100%; }
+	.sidebar-best-sellers .item .text{background: transparent !important}
+	.powerup{margin-bottom: 50px; padding-bottom: 50px;}
+	.powerup .cekresi form{text-align: left !important}
+}

@@ -8,12 +8,12 @@
 			<div class="login">
 				<form class="form-horizontal" action="{{url('member/login')}}" method="post">
 					<p>
-						<label>E-mail address:</label>
+						<label>Email:</label>
 						<input type="text" name="email" class="input-text-1" required />
 					</p>
 					<p>
 						<label>Password:</label>
-						<input type="password" name="password" class="input-text-1" />
+						<input type="password" name="password" class="input-text-1" required />
 					</p>
 					<p>
 						<label></label>

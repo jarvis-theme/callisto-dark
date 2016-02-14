@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        {{ Theme::partial('seostuff') }}    
-        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+        {{ Theme::partial('seostuff') }}  
+        <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?sensor=false"></script>
         {{ Theme::partial('defaultcss') }}  
         {{ Theme::asset()->styles() }}  
         
@@ -14,12 +14,12 @@
             <!-- BEGIN .main-content-wrapper -->
             <div class="main-content-wrapper">
                 {{ Theme::partial('slider') }}  
-                {{ Theme::place('content') }}   
+                {{ Theme::place('content') }}  
             </div>
 
             {{ Theme::partial('footer') }}  
-            {{ Theme::partial('defaultjs') }}   
-            {{ Theme::partial('analytic') }}    
+            {{ Theme::partial('defaultjs') }}  
+            {{ Theme::partial('analytic') }}  
         </div>
     </body>
 </html>      

@@ -51,18 +51,18 @@
 	
 	<div class="guest-login">
 		<div class="main-title">
-			<p class="custom-font-1" style="color:#fff;">Ubah Password</p>
+			<p class="custom-font-1 white">Ubah Password</p>
 		</div>
-		Password lama<br>
-		<input style="width:200px" class="input-text-1" type="password" name='oldpassword'>
+		Password Lama<br>
+		<input class="input-text-1 password" type="password" name='oldpassword'>
 		<br><br>
 
-		Password baru<br>
-		<input style="width:200px" class="input-text-1" type="password" name='password'>
+		Password Baru<br>
+		<input class="input-text-1 password" type="password" name='password'>
 		<br><br>
 
-		Confirm password baru<br>
-		<input style="width:200px" class="input-text-1" type="password" name='password_confirmation'>
+		Ulangi Password Baru<br>
+		<input class="input-text-1 password" type="password" name='password_confirmation'>
 		<br><br>
 	</div>
 	{{Form::close()}}

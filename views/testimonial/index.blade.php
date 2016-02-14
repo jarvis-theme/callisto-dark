@@ -11,7 +11,7 @@
 				<a href="#">{{$value->nama}}</a>
 			</div>
 			<div class="title-legend">
-				<a href="#" class="date">{{date("d M Y", strtotime($value->updated_at))}}</a>
+				<a href="#" class="date">{{date("d M Y", strtotime($value->created_at))}}</a>
 			</div>
 			<div class="text">
 				<p>{{short_description($value->isi,250)}}</p>
@@ -34,9 +34,9 @@
 			<p class="custom-font-1">Buat Testimonial</p>
 		</div>
 		<form action="{{url('testimoni')}}" method="post">
-			<label>Nama</label><br><input style="width: 100%;" type="text" name="nama" class="input-text-1" required><br><br>
-			<label>Testimonial</label><br><textarea style="width: 95%;" name="testimonial" class="textarea-1" required></textarea><br>
-			<button class="button-1 custom-font-1"><span style="background: none; padding: 5px 15px 5px 15px;">Kirim Testimonial</span></button>
+			<label>Nama</label><br><input type="text" name="nama" class="input-text-1" id="testi" required><br><br>
+			<label>Testimonial</label><br><textarea name="testimonial" class="textarea-1" id="testi-message" required></textarea><br>
+			<button class="button-1 custom-font-1"><span class="btn-testi">Kirim Testimonial</span></button>
 		</form>
 	</div>
 	<!-- END .shop-by-category -->

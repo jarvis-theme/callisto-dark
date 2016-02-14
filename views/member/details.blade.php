@@ -4,7 +4,6 @@
 
 				<!-- BEGIN .single-full-width -->
 				<div class="single-full-width customer">
-
 					<div class="item-block-3 shipping-address">
 						<div class="content">
 							<h3 class="custom-font-1">Profile</h3>
@@ -33,7 +32,7 @@
 								<tbody>
 								@foreach (list_order() as $item)
 									<tr>
-										<td><a href="#">{{prefixOrder()}}{{$item->kodeOrder}}</a></td>
+										<td><a href="#">{{prefixOrder().$item->kodeOrder}}</a></td>
 										<td>{{date("d M Y", strtotime($item->tanggalOrder))}}</td>
 										<td class="payment">
 											@if($item->status==0)
@@ -52,7 +51,7 @@
 										<td>
 										@if($item->status == 0)
 											<a href="{{url('konfirmasiorder/'.$item->id)}}" class="button-1 custom-font-1 trans-1">
-												<span style="font-size: 12px">Konfirmasi</span>
+												<span class="bestprice">Konfirmasi</span>
 											</a>
 										@endif
 										</td>
