@@ -15,7 +15,7 @@
 			@else
 			<a href="#">
 			@endif
-				<img src="{{url(slide_image_url($val->gambar))}}" alt="{{$val->gambar}}">
+				<img src="{{url(slide_image_url($val->gambar))}}" alt="{{$val->title}}">
 			</a>
 		</div>
 		@endforeach
