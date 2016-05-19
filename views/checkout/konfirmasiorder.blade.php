@@ -105,6 +105,14 @@
 			</center>
 			<center id="paypal">{{ $paypalbutton }}</center>
 			<br>
+		@elseif($order->jenisPembayaran==4) 
+			@if(($checkouttype==1 && $order->status < 2) || ($checkouttype==3 && ($order->status!=6)))
+			<center>
+				<h4 class="custom-font-1">{{trans('content.step5.confirm_btn')}} iPaymu</h4><br>
+				<p>{{trans('content.step5.ipaymu')}}</p>
+				<a class="cart-button" href="{{url('ipaymu/'.$order->id)}}" target="_blank">{{trans('content.step5.ipaymu_btn')}}</a>
+			</center>
+			@endif
 		@elseif($order->jenisPembayaran==5 && $order->status == 0)
 			<center>
 				<h4 class="custom-font-1"><strong>{{trans('content.step5.confirm_btn')}} DOKU MyShortCart</strong></h4><br>

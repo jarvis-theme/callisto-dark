@@ -121,7 +121,7 @@
 				@if(count(list_dokus()) > 0 && list_dokus()->status == 1)
 				<a><img src="{{url('img/bank/doku.jpg')}}" alt="doku myshortcart" title="Doku" /></a>
 				@endif
-				@if(count(list_veritrans()) > 0 && list_veritrans()->status == 1)
+				@if(count(list_veritrans()) > 0 && list_veritrans()->status == 1 && list_veritrans()->type == 1)
 				<a><img src="{{url('img/bank/veritrans.png')}}" alt="Veritrans" title="Veritrans"></a>
 				@endif
 			</p>
