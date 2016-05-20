@@ -2,7 +2,7 @@
 <div class="main-footer-wrapper">
 	<a href="#" class="back-to-the-top">Kembali ke atas</a>
 	<div class="main-footer">
-		@foreach(all_menu() as $key=>$group)	
+		@foreach(all_menu() as $key=>$group) 
 			@if($key==0 || $key>2)
 
 			@else
@@ -100,28 +100,28 @@
 				<p class="custom-font-1">Pembayaran</p>
 			</div>
 			<p class="social">
-				@if(count( list_banks() ) > 0)
-					@foreach(list_banks() as $value)
+				@foreach(list_banks() as $value)
+					@if($value->status == 1)
 					<a>{{HTML::image(bank_logo($value), $value->bankdefault->nama, array('title'=>$value->bankdefault->nama))}}</a><br>
-					@endforeach
-				@endif
-				@if(count(list_payments()) > 0)
-					@foreach(list_payments() as $pay)
-						@if($pay->nama == 'paypal' && $pay->aktif == 1)
-						<a><img src="{{url('img/bank/paypal.png')}}" alt="Paypal" title="Paypal" /></a>
-						@endif
-						@if($pay->nama == 'ipaymu' && $pay->aktif == 1)
-						<a><img src="{{url('img/bank/ipaymu.jpg')}}" alt="ipaymu" title="Ipaymu" /></a>
-						@endif
-						@if($pay->nama == 'bitcoin' && $pay->aktif == 1)
-						<a><img src="{{url('img/bitcoin.png')}}" alt="Bitcoin" title="Bitcoin" /></a>
-						@endif
-					@endforeach
-				@endif
+					@endif
+				@endforeach
+				
+				@foreach(list_payments() as $pay)
+					@if($pay->nama == 'paypal' && $pay->aktif == 1)
+					<a><img src="{{url('img/bank/paypal.png')}}" alt="Paypal" title="Paypal" /></a>
+					@endif
+					@if($pay->nama == 'ipaymu' && $pay->aktif == 1)
+					<a><img src="{{url('img/bank/ipaymu.jpg')}}" alt="ipaymu" title="Ipaymu" /></a>
+					@endif
+					@if($pay->nama == 'bitcoin' && $pay->aktif == 1)
+					<a><img src="{{url('img/bitcoin.png')}}" alt="Bitcoin" title="Bitcoin" /></a>
+					@endif
+				@endforeach
+				
 				@if(count(list_dokus()) > 0 && list_dokus()->status == 1)
 				<a><img src="{{url('img/bank/doku.jpg')}}" alt="doku myshortcart" title="Doku" /></a>
 				@endif
-				@if(count(list_veritrans()) > 0 && list_veritrans()->status == 1)
+				@if(count(list_veritrans()) > 0 && list_veritrans()->status == 1 && list_veritrans()->type == 1)
 				<a><img src="{{url('img/bank/veritrans.png')}}" alt="Veritrans" title="Veritrans"></a>
 				@endif
 			</p>
@@ -139,4 +139,4 @@
 	</div>
 </div>
 <!-- END .main-footer-wrapper -->
-{{pluginPowerup()}}
+{{pluginPowerup()}} 
