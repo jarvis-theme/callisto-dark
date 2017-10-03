@@ -1,7 +1,7 @@
 				<!-- BEGIN .main-left-wrapper -->
 				<div class="main-left-wrapper">
 					<!-- BEGIN .post-wrapper -->
-					<div class="post-wrapper">
+					<div class="post-wrapper blog">
 						<h2 class="post-title custom-font-1"><a href="#">{{$detailblog->judul}}</a></h2>
 						<div class="title-legend">
 							<a href="#" class="date">{{waktuTgl($detailblog->created_at)}}</a>

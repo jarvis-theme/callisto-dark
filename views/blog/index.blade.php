@@ -17,6 +17,7 @@
 								<a onclick="window.open(this.href, 'mywin', 'left=20, top=20, width=500, height=500, toolbar=1, resizable=0'); return false;" href="https://www.facebook.com/sharer/sharer.php?u={{blog_url($value)}}" class="share">Bagikan artikel ini</a>
 							</div>
 							<div class="text">
+								<img src="{{ imgString($value->isi) }}" class="blog-img" />
 								<p>{{short_description($value->isi,250)}}</p>
 								<p><a href="{{blog_url($value)}}" class="more-link">Baca Selengkapnya</a></p>
 							</div>

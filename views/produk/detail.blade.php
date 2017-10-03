@@ -111,7 +111,7 @@
 				<div class="item">
 					<label>Jumlah :</label>
 					<div class="select">
-						<input type="text" class="input-text-1" name="qty" value="1">
+						<input type="text" class="input-text-1" name="qty" value="1" pattern="[0-9]">
 					</div>
 					<div class="clear"></div><br>
 				</div>

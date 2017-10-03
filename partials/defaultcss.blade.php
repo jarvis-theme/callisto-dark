@@ -1,7 +1,7 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ropa+Sans" type="text/css" />
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    {{generate_theme_css('callisto-dark/assets/css/main-stylesheet.css')}}  
+    {{generate_theme_css('callisto-dark/assets/css/main-stylesheet.css?v=002')}}  
     {{generate_theme_css('callisto-dark/assets/css/dark.css')}} 
     {{generate_theme_css('callisto-dark/assets/css/jquery.fancybox.css')}}  
     {{generate_theme_css('callisto-dark/assets/css/bootstrap.min.css')}} 
